@@ -1,12 +1,12 @@
 import connectMongoDB from "app/mongodb";
-import Task from "./model/Task";
+import Task from "../../../../model/Task";
 import { NextResponse } from "next/server";
 // TODO: ID route, needs to be put somewhere else, maybe in the pages\api?
 
 export async function PUT(request, { params }) {
   const { id } = params;
   const { newCompleted: completed } = await request.json();
-  await connectMongoDB();
+  await connectMongoDB(); 
   await Task.findByIdAndUpdate(id, { completed });
   return NextResponse.json(
     {

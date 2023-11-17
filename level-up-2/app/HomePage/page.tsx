@@ -4,13 +4,14 @@
 //implement a button to skip line to the first completed task
 
 import React, { useState, useEffect } from "react";
-import TaskCard from "components/TaskCard";
-import ProgressionBar from "components/ProgressionBar";
+import TaskCard from "../../components/TaskCard";
+import ProgressionBar from "../../components/ProgressionBar";
+import { TaskType } from "../types/types";
 
 export default function Home() {
   // TODO: Once auth is built in, keep track of user's current tasks in DB
-  const tasksFromLS = JSON.parse(localStorage.getItem('tasks') || '[]');
-  const [tasks, setTasks] = useState([...tasksFromLS]);
+  const tasksFromLS: TaskType[] = JSON.parse(localStorage.getItem('tasks') || '[]');
+  const [tasks, setTasks] = useState<TaskType[]>([...tasksFromLS]);
 
   // Update local storage whenever tasks change
   useEffect(() => {
@@ -20,10 +21,10 @@ export default function Home() {
 
   const fetchTask = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/tasks");
-      const data = await response.json();
+      const response: Response = await fetch("http://localhost:3000/api/tasks");
+      const data: {task:TaskType[]} = await response.json();
       if (data && data.task) {
-        const newTasks = [...data.task, ...tasks.filter((t) => !data.task.some((nt) => nt._id === t._id))];
+        const newTasks: TaskType[] = [...data.task, ...tasks.filter((t) => !data.task.some((nt) => nt._id === t._id))];
         setTasks(newTasks);
       }
     } catch (error) {
