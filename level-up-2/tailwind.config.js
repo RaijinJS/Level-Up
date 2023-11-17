@@ -7,8 +7,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage:  theme => ({
-       'image': "url('/image-from-rawpixel-id-12561076-jpeg.jpg')"
+      backgroundImage: theme => ({
+        'image': "url('/image-from-rawpixel-id-12561076-jpeg.jpg')"
       }),
       fontFamily: {
         nunito: ['var(--font-nunito)'],
@@ -16,4 +16,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

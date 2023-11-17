@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
 // TODO: delete comment
 //implement a button to skip line to the first completed task
 
-import React, { useState, useEffect} from 'react';
-import TaskCard from 'components/TaskCard';
-import ProgressionBar from 'components/ProgressionBar';
+import React, { useState, useEffect } from "react";
+import TaskCard from "components/TaskCard";
+import ProgressionBar from "components/ProgressionBar";
 
 export default function Home() {
   // TODO: Once auth is built in, keep track of user's current tasks in DB
@@ -18,18 +18,16 @@ export default function Home() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-
-
   const fetchTask = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/tasks');
+      const response = await fetch("http://localhost:3000/api/tasks");
       const data = await response.json();
       if (data && data.task) {
-        const newTasks = [...data.task, ...tasks.filter(t => !data.task.some(nt => nt._id === t._id))];
+        const newTasks = [...data.task, ...tasks.filter((t) => !data.task.some((nt) => nt._id === t._id))];
         setTasks(newTasks);
       }
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      console.error("Error fetching tasks:", error);
     }
   };
 
@@ -46,10 +44,12 @@ export default function Home() {
       </div>
         {/* TODO: Make a TaskList component and move task logic into it. */}
       <div className="container mx-auto px-4 pt-2">
-      {tasks.length === 0 ? (
+        {tasks.length === 0 ? (
           <div className="text-center my-10">
             <h2 className="text-2xl font-bold text-gray-800 pb-4">Start with your first useless skill</h2>
-            <h3>Press the <span className='font-bold text-xl'>+</span> button</h3>
+            <h3>
+              Press the <span className="font-bold text-xl">+</span> button
+            </h3>
           </div>
         ) : (
           <TaskCard tasks={tasks} setTasks={setTasks} />
