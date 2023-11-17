@@ -1,3 +1,4 @@
+// TODO: delete unnecessary import progressionbar
 import ProgressionBar from "components/ProgressionBar"
 
 export default function HomePageLayout({ children }) {

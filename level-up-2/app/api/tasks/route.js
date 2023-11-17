@@ -13,22 +13,8 @@ export async function POST(request) {
     status: 201
   });
 }
+// TODO: Delete duplicate GET function
 
-export async function GET( request){
-      try {
-         await connectMongoDB();
-          const task = await Task.aggregate([{ $sample: { size: 1 } }]);
-          return NextResponse.json({task});
-      }
-        catch (error) {
-          return NextResponse.json({
-              message: 'Error',
-          },{
-              status: 400
-          })
-
-      }
-    }
 export async function GET(request) {
   try {
     await connectMongoDB();
