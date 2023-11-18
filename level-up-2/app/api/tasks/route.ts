@@ -21,12 +21,7 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
   try {
     await connectMongoDB();
-      const task = await Task.findOneAndUpdate(
-        { added: false },
-        { $set: { added: true } },
-        { new: true }
-      );
-
+    const task = await Task.findOneAndUpdate({ added: false }, { $set: { added: true } }, { new: true });
     return NextResponse.json([{ task }]);
   } catch (error) {
     console.log(error);

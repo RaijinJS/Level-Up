@@ -1,8 +1,8 @@
-'use client';
+"use client";
 // TODO: Split logic between TaskList and TaskCard
 import { useState } from "react";
-import TaskDetail from "./TaskDetail";
-import { TaskType } from "../app/types/Task";
+import TaskDetail from "../TaskDetail";
+import { TaskType } from "../../app/types/Task";
 // TODO: redux state reminder
 export default function TaskCard({
   tasks,
@@ -13,9 +13,7 @@ export default function TaskCard({
 }) {
   const [selectedTask, setSelectedTask] = useState<null | TaskType>(null);
 
-  const showTaskDetails: (task: null | TaskType) => void = (
-    task: null | TaskType
-  ) => {
+  const showTaskDetails: (task: null | TaskType) => void = (task: null | TaskType) => {
     setSelectedTask(task);
   };
 
@@ -29,13 +27,11 @@ export default function TaskCard({
 
     try {
       const response: Response = await fetch(`http://localhost:3000/api/tasks/${taskId}/remove`, {
-        method: "PUT"
+        method: "PUT",
       });
       const data: TaskType = await response.json();
       if (data) {
-        const newTasks: TaskType[] = [
-          ...tasks.filter((t) => data._id !== t._id),
-        ];
+        const newTasks: TaskType[] = [...tasks.filter((t) => data._id !== t._id)];
         setTasks(newTasks);
       }
     } catch (error) {
@@ -55,7 +51,7 @@ export default function TaskCard({
     setTasks((currentTasks: TaskType[]) => {
       // Update the completed status of the task
       const updatedTasks: TaskType[] = currentTasks.map((task) =>
-      task._id === taskId ? { ...task, completed: !completed } : task
+        task._id === taskId ? { ...task, completed: !completed } : task
       );
 
       const completedTasks: TaskType[] = updatedTasks.filter((task) => task.completed);
@@ -76,52 +72,41 @@ export default function TaskCard({
         {Array.isArray(tasks) &&
           tasks.map((task: TaskType) => (
             <div
+              data-testid="task-card"
               key={task._id}
               className={`flex flex-col bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden my-4 mx-2 transition-all duration-200 ease-in-out transform hover:scale-110 cursor-pointer ${
                 task.completed ? "opacity-50" : "opacity-100"
-              }`}
-            >
+              }`}>
               <button onClick={() => showTaskDetails(task)} className="block">
-                <img
-                  className="w-full h-48 object-cover"
-                  src={task.image}
-                  alt={task.title}
-                />
+                <img className="w-full h-48 object-cover" src={task.image} alt={task.title} />
               </button>
               <div className="p-4 flex-grow">
-                <h3 className="font-semibold text-lg text-gray-800 mb-2">
-                  {task.title}
-                </h3>
+                <h3 className="font-semibold text-lg text-gray-800 mb-2">{task.title}</h3>
                 <p className="text-gray-600 text-sm">{task.description}</p>
               </div>
               {/* Completition          */}
               <div className="flex justify-between items-center p-4 border-t ">
                 <button
+                  data-testid="complete-button"
                   onClick={() => onToggleComplete(task._id, task.completed)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                    task.completed
-                      ? "bg-green-500 text-white"
-                      : "bg-rose-200 text-gray-800"
+                    task.completed ? "bg-green-500 text-white" : "bg-rose-200 text-gray-800"
                   } transition-all duration-200 ease-in-out transform hover:scale-105 cursor-pointer `}
-                  title={
-                    task.completed ? "Task Completed" : "Mark it as complete"
-                  }
-                >
+                  title={task.completed ? "Task Completed" : "Mark it as complete"}>
                   {task.completed ? "Completed" : "In Progress"}
                 </button>
                 {/* Info */}
                 <button
                   onClick={() => showTaskDetails(task)}
+                  data-testid="tips-button"
                   title="tips"
-                  className="text-blue-500 hover:text-blue-600 transition-colors duration-300 pr-12 "
-                >
+                  className="text-blue-500 hover:text-blue-600 transition-colors duration-300 pr-12 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="black"
-                  >
+                    stroke="black">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -132,18 +117,17 @@ export default function TaskCard({
                 </button>
                 {/* Delete */}
                 <button
+                  data-testid="delete-button"
                   onClick={() => onDelete(task._id)}
                   className="text-red-500 hover:text-red-600 transition-colors duration-300"
-                  title="Delete?"
-                >
+                  title="Delete?">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-6 h-6"
-                  >
+                    className="w-6 h-6">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -156,13 +140,7 @@ export default function TaskCard({
           ))}
       </div>
 
-      {selectedTask && (
-        <TaskDetail
-          task={selectedTask}
-          onClose={closeTaskDetails}
-          showImage={false}
-        />
-      )}
+      {selectedTask && <TaskDetail task={selectedTask} onClose={closeTaskDetails} showImage={false} />}
     </>
   );
 }
