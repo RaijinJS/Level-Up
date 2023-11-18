@@ -8,7 +8,7 @@ export default function Profile() {
   // TODO: Redux states reminder
 
   // The completedTasks state is either an empty array, or an array of Tasks
-  const [completedTasks, setCompletedTasks] = useState<[TaskType?]>([]);
+  const [completedTasks, setCompletedTasks] = useState<TaskType[]>([]);
   const [selectedTask, setSelectedTask] = useState<TaskType | null>(null);
 
   const showTaskDetails = (task: TaskType) => {
