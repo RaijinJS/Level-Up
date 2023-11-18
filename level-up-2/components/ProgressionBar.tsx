@@ -4,8 +4,8 @@ import { startCelebration } from "./celebration";
 import { useEffect } from "react";
 
 // TODO: Redux edit props
-export default function ProgressionBar({ totalTasks, completedTasks }) {
-    const completionPercentage = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+export default function ProgressionBar({ totalTasks, completedTasks}): {totalTasks: number, completedTasks: number} {
+    const completionPercentage: number = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
     useEffect(() => {
         if (completionPercentage === 100) {
@@ -13,7 +13,7 @@ export default function ProgressionBar({ totalTasks, completedTasks }) {
         }
       }, [completionPercentage]);
 // TODO: Replace this class toggling logic with clsx package implementation
-    let barColorClass;
+    let barColorClass: string;
     if (completionPercentage === 0) {
         barColorClass = '';
     } else if (completionPercentage < 30) {
