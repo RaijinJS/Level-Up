@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from "react";
 import TaskCard from "../../components/TaskCard";
-import ProgressionBar from "../../components/ProgressionBar";
+import ProgressionBar from "../../components/ProgressionBar/ProgressionBar";
 import { TaskType } from "../types/Task";
 
 export default function Home() {

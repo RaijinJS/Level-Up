@@ -1,6 +1,6 @@
 "use client";
 
-import { startCelebration } from "./celebration";
+import { startCelebration } from "../celebration";
 import { useEffect } from "react";
 
 // TODO: Redux edit props
