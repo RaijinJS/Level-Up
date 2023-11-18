@@ -31,7 +31,7 @@ export default function TaskCard({
       const response: Response = await fetch(`http://localhost:3000/api/tasks/${taskId}/remove`, {
         method: "PUT"
       });
-      const data: { task: TaskType[] } = await response.json();
+      const data: TaskType = await response.json();
       if (data) {
         const newTasks: TaskType[] = [
           ...tasks.filter((t) => data._id !== t._id),
