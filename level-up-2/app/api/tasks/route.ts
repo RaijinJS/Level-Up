@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: `Error: ${error}` }, { status: 500 });
   }
 }
-
+// TODO: Delete duplicate GET function
 export async function GET(request: Request) {
   try {
     await connectMongoDB();
