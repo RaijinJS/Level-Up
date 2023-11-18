@@ -22,13 +22,27 @@ export default function TaskCard({
   const closeTaskDetails: () => void = () => {
     setSelectedTask(null);
   };
-  // TODO: deletec oomments below
+
+  // TODO: delete comments below
   const onDelete: (taskId: string) => void = async (taskId: string) => {
     // Logic for handling delete
-    setTasks((currentTasks: TaskType[]) =>
-    currentTasks.filter((task: TaskType) => task._id !== taskId)
-    );
+
+    try {
+      const response: Response = await fetch(`http://localhost:3000/api/tasks/${taskId}/remove`, {
+        method: "PUT"
+      });
+      const data: { task: TaskType[] } = await response.json();
+      if (data) {
+        const newTasks: TaskType[] = [
+          ...tasks.filter((t) => data._id !== t._id),
+        ];
+        setTasks(newTasks);
+      }
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    }
   };
+
   // TODO: Once auth is implemented and we have users, update this and setTasks to be user specific
   const onToggleComplete: (taskId: string, completed: boolean) => void = async (taskId: string, completed: boolean) => {
     // Logic for handling toggle complete

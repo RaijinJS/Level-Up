@@ -7,6 +7,7 @@ const taskSchema = new Schema<TaskType>({
   image: String,
   completed: { type: Boolean, default: false },
   more: String,
+  added: { type: Boolean, default: false },
 });
 
 const Task = mongoose.models.Task || mongoose.model<TaskType>("Task", taskSchema);

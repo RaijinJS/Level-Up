@@ -5,4 +5,5 @@ export type TaskType = {
   image: string;
   completed: boolean;
   more: string;
+  added: boolean;
 };
