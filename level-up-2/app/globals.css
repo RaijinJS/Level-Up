@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -17,7 +16,6 @@
 .animate-fade-in-down {
   animation: fadeInDown 1.5s ease-out forwards;
 }
-
 
 @keyframes fall {
   0% {

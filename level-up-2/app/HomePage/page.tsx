@@ -4,7 +4,7 @@
 //implement a button to skip line to the first completed task
 
 import React, { useState, useEffect } from "react";
-import TaskCard from "../../components/TaskCard";
+import TaskCard from "../../components/TaskCard/TaskCard";
 import ProgressionBar from "../../components/ProgressionBar/ProgressionBar";
 import { TaskType } from "../types/Task";
 
@@ -58,7 +58,7 @@ export default function Home() {
       <div className="fixed bottom-4 left-4">
         <button
           onClick={fetchTask}
-          className="bg-red-300 text-gray-800 text-white p-4 rounded-full shadow-lg animate-pulse transition-all duration-200 ease-in-out transform hover:scale-110 cursor-pointer">
+          className="bg-red-300 text-white p-4 rounded-full shadow-lg animate-pulse transition-all duration-200 ease-in-out transform hover:scale-110 cursor-pointer">
           {/* TODO: Make svg below a component */}
           <svg className="h-6 w-6" fill="black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path
