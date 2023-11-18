@@ -8,6 +8,7 @@ export const tasks: TaskType[] = [
     image: "../../../public/portrait-perfection.png",
     completed: false,
     more: "task 1 bigger description",
+    added: true,
   },
   {
     _id: "2",
@@ -16,6 +17,7 @@ export const tasks: TaskType[] = [
     image: "../../../public/balancing-act.png",
     completed: true,
     more: "task 2 bigger description",
+    added: true,
   },
   {
     _id: "3",
@@ -24,5 +26,6 @@ export const tasks: TaskType[] = [
     image: "../../../public/backward-dialogue.png",
     completed: false,
     more: "task 3 bigger description",
+    added: true,
   },
 ];
