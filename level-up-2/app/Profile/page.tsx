@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import TaskDetail from "../../components/TaskDetail";
+import TaskDetail from "../../components/TaskDetail/TaskDetail";
 import { TaskType } from "../types/Task";
 
 export default function Profile() {

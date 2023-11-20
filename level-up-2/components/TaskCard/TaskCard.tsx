@@ -1,7 +1,7 @@
 "use client";
 // TODO: Split logic between TaskList and TaskCard
 import { useState } from "react";
-import TaskDetail from "../TaskDetail";
+import TaskDetail from "../TaskDetail/TaskDetail";
 import { TaskType } from "../../app/types/Task";
 // TODO: redux state reminder
 export default function TaskCard({
@@ -51,7 +51,7 @@ export default function TaskCard({
     setTasks((currentTasks: TaskType[]) => {
       // Update the completed status of the task
       const updatedTasks: TaskType[] = currentTasks.map((task) =>
-        task._id === taskId ? { ...task, completed: !completed } : task
+        task._id === taskId ? { ...task, completed: !completed } : task,
       );
 
       const completedTasks: TaskType[] = updatedTasks.filter((task) => task.completed);
