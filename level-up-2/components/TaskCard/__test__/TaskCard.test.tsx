@@ -69,12 +69,14 @@ describe("TaskCard", () => {
     });
   });
 
-  // describe("Behaviour", () => {
-  //   it("should change complete button text to 'Completed' when clicked", async () => {
-  //     const { rerender } = render(<TaskCard tasks={[tasks[0]]} setTasks={mockSetTasks} />); // ARRANGE
-  //     expect(screen.getByTestId("complete-button")).toHaveTextContent("In Progress");
-  //     await userEvent.click(screen.getByTestId("complete-button"));
-  //     expect(mockSetTasks).toHaveBeenCalled();
-  //   });
-  // });
+  describe("Behaviour", () => {
+    it("should change complete button text to 'Completed' when clicked", async () => {
+      const { rerender } = render(<TaskCard tasks={[tasks[0]]} setTasks={mockSetTasks} />); // ARRANGE
+      expect(screen.getByTestId("complete-button")).toHaveTextContent("In Progress");
+      await userEvent.click(screen.getByTestId("complete-button"));
+      rerender(<TaskCard tasks={[tasks[0]]} setTasks={mockSetTasks} />)
+      expect(mockSetTasks).toHaveBeenCalled();
+      expect(screen.getByTestId("complete-button")).toHaveTextContent("Completed");
+    });
+  });
 });
