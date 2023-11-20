@@ -15,7 +15,7 @@ describe("TaskCard", () => {
       rerender(<TaskCard tasks={[tasks[0], tasks[1]]} setTasks={mockSetTasks} />); // ARRANGE
       expect(screen.getAllByTestId("task-card")).toHaveLength(2); // ACT & ASSERT
 
-      // We check twice to see if the .map function is working as we expect it too
+      // We check twice to see if the .map function is working as we expect it to
     });
 
     it("should render a title on the task card", () => {
