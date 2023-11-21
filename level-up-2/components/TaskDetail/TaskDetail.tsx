@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { TaskType } from "../../app/types/Task";
-// TODO: delete unused import
-import { type } from "os";
 
 interface TaskDetailProps {
   task: TaskType;

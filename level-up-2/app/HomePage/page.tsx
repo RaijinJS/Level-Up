@@ -12,9 +12,9 @@ export default function Home() {
   // TODO: Once auth is built in, keep track of user's current tasks in DB
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
-  useEffect(() => {
-    getAddedTasks();
-  }, []);
+   useEffect(() => {
+     getAddedTasks()
+   }, []);
 
   const getAddedTasks: () => void = async () => {
     try {
