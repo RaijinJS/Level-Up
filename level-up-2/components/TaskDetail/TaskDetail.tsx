@@ -40,17 +40,8 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, onClose, showImage }) => 
           transform: "scale(1)",
         }}
       >
-        {/* TODO: Delete or fix unrendered div below */}
-        <div className="flex flex-col justify-between items-center">
-          {showImage && (
-            <img
-              src={task.image}
-              alt={task.title}
-              className="w-1/2 h-auto mb-4"
-            />
-          )}{" "}
-        </div>
-          {/* TODO: DONE - Align title and close button at top of popup and remove unneeded comment */}
+        {/* TODO: DONE - Delete or fix unrendered div below */}
+        {/* TODO: DONE - Align title and close button at top of popup and remove unneeded comment */}
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold text-orange-400">{task.title}</h1>
           <button
