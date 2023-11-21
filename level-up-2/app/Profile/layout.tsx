@@ -40,9 +40,9 @@ export default function ProfileLayout({
         </div>
       </nav>
 
-      <main className="flex flex-col mt-20 grow items-center justify-center mx-auto px-2 ">
+      <div className="flex flex-col mt-20 grow items-center justify-center mx-auto px-2 ">
         {children}
-      </main>
+      </div>
     </div>
   );
 }

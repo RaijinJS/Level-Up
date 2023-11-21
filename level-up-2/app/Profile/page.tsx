@@ -60,7 +60,7 @@ const achievementMessage = () => {
   }};
 
   return (
-    <main className="flex flex-col items-center justify-center w-full h-max">
+    <div className="flex flex-col items-center justify-center w-full h-max">
       <div className="bg-white shadow-lg rounded-lg p-8 text-center max-w-2xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-700 mb-4">Your Progress</h2>
         <p className="text-xl text-gray-600 mb-8">
@@ -110,6 +110,6 @@ const achievementMessage = () => {
           showImage={true}
         />
       )}
-    </main>
+    </div>
   );
 }

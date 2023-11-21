@@ -1,5 +1,5 @@
-import connectMongoDB from "../../../../app/mongodb";
-import Task from "../../../../model/Task";
+import connectMongoDB from "../../../lib/mongodb";
+import Task from "../../../lib/model/Task";
 import { NextResponse } from "next/server";
 import { TaskType } from "../../../types/Task";
 
