@@ -29,8 +29,8 @@ export default function ProgressionBar({ totalTasks, completedTasks }: { totalTa
   }
 
   return (
-    <div data-testid="progression-bar" className="relative w-3/5 mx-auto ">
-      <span className="absolute -top-6 left-0 text-gray-700 text-md font-bold">Progress</span>
+    <div data-testid="progression-bar" className="w-3/5 mx-auto">
+      <span className="text-gray-700 text-md font-bold">Progress</span>
       <div className="bg-white rounded-full overflow-hidden shadow">
         <div
           className={`transition-all duration-1000 ease-in-out ${barColorClass} text-black text-sm font-semibold text-center p-1 leading-none rounded-full`}

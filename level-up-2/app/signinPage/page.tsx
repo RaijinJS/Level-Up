@@ -13,8 +13,8 @@ const handleLogin = () => {
 export default function SignIn() {
   return (
     // TODO: DONE - center login form
-    <div className="flex flex-col items-center">
-      <div className="flex flex-col items-center justify-center w-full px-6 py-8 text-center md:w-1/2 lg:w-1/3">
+    <div className="flex flex-col min-h-screen grow items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full h-max px-6 py-8 text-center md:w-1/2 lg:w-1/3">
         <h1 className="text-4xl font-bold text-gray-700">Welcome back!</h1>
         <p className="mt-2 text-lg text-gray-600">
           Please sign in to your account.

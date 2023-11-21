@@ -2,7 +2,7 @@ export default function HomePageLayout({ children }: { children: React.ReactNode
   return (
     <div>
       {/* TODO: Make nav bar it's own component and add conditionals to determine display*/}
-      <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-2 bg-white shadow-md z-50">
+      <nav className="w-full flex items-center justify-between p-2 bg-white shadow-md">
         <div className="flex-grow text-center pl-20 pr-5">
           <a href="/HomePage" className="inline-block">
             <img
@@ -26,7 +26,7 @@ export default function HomePageLayout({ children }: { children: React.ReactNode
         </a>
       </nav>
 
-      <main className="container mx-auto px-4 mt-0 ">{children}</main>
+      <main className="mx-auto px-4 mt-0 block">{children}</main>
     </div>
   );
 }

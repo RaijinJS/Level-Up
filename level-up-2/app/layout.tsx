@@ -19,22 +19,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${nunito.className} bg-gradient-to-r from-orange-100 via-orange-200 to-orange-300`}
+        className={`${nunito.className} bg-gradient-to-r from-orange-100 via-orange-200 to-orange-300 h-full`}
       >
-        {/* TODO: Remove nav here completely and use css to center the div below. Seems to be a hidden div just for formatting and positioning */}
-        <nav>
-          <div className="display:none">
-            {/* Logo */}
-            <img
-              src="/logo1.png"
-              alt="Level Up Logo"
-              className="h-20 md:h-28 opacity-0"
-            />
-          </div>
-        </nav>
-        <main className="container mx-auto px-4 mt-8">{children}</main>
+        {/* TODO: DONE - Remove nav here completely and use css to center the div below. Seems to be a hidden div just for formatting and positioning */}
+        <main className="m-0">{children}</main>
       </body>
     </html>
   );

@@ -10,14 +10,14 @@ export default function ProfileLayout({
   // TODO: Potentially add more features here after auth, like change password
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-2 bg-white shadow-md z-50">
+      <nav className="w-full flex items-center justify-between p-2 bg-white shadow-md">
         <a
           data-testid="homeButton"
           href="/HomePage"
           className="flex-shrink-0 text-blue-600 hover:text-blue-800 pl-4"
         >
           {/* TODO: DONE - turn home icon svg below into component */}
-          <Image src={home} alt="Home Button" className="h-8 w-8"/>
+          <Image src={home} alt="Home Button" className="h-8 w-8" />
         </a>
 
         <div className="flex-grow text-center pl-17 pr-13">
@@ -40,7 +40,9 @@ export default function ProfileLayout({
         </div>
       </nav>
 
-      <main className="container mx-auto px-2 ">{children}</main>
+      <main className="flex flex-col mt-20 grow items-center justify-center mx-auto px-2 ">
+        {children}
+      </main>
     </div>
   );
 }
