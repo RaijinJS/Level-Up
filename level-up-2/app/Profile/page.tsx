@@ -12,9 +12,9 @@ export default function Profile() {
   const [selectedTask, setSelectedTask] = useState<TaskType | null>(null);
 
   // TODO Create a taskList component that shows the different tasks. We can re-use this TaskList component on the homepage as well.
-  // By creating that component we will move all of the state logic out of this page. 
+  // By creating that component we will move all of the state logic out of this page.
 
-  // Every route should be SSR. State management is done in the components. 
+  // Every route should be SSR. State management is done in the components.
 
   const showTaskDetails = (task: TaskType) => {
     setSelectedTask(task);
@@ -41,23 +41,23 @@ export default function Profile() {
 
     fetchCompletedTasks();
   }, []);
-  // TODO: make below a switch statement
-  const achievementMessage = () => {
-    const count = completedTasks.length;
-    if (count > 20) {
+  // TODO: DONE - make below a switch statement
+const achievementMessage = () => {
+  const count = completedTasks.length;
+  switch (true) {
+    case count > 20:
       return "🌟 Master 🌟";
-    } else if (count > 15) {
+    case count > 15:
       return "Advanced ⭐";
-    } else if (count > 10) {
+    case count > 10:
       return "Pro 🏆";
-    } else if (count >= 5) {
+    case count >= 5:
       return "Amateur 🚀";
-    } else if (count > 0) {
+    case count > 0:
       return "Rookie 🌱";
-    } else {
+    default:
       return "🎯 Set your first task! 🎯";
-    }
-  };
+  }};
 
   return (
     <main>

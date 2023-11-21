@@ -19,22 +19,7 @@ export async function PUT(request: Request, { params }: { params: { id: number }
   }
 }
 
-// TODO: Delete delete function that was never used
-// export async function DELETE(request: Request, { params }: { params: { id: number } }) {
-//   try {
-//     const { id } = params;
-//     await connectMongoDB();
-//     const res = await Task.findByIdAndDelete(id);
-//     if (res && res.ok) {
-//       return NextResponse.json({ message: "Task deleted successfully" }, { status: 200 });
-//     } else {
-//       return NextResponse.json({ message: "Task could not be deleted", status: 500 });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return NextResponse.json({ message: `Error: ${error}`, status: 500 });
-//   }
-// }
+// TODO: DONE - Delete delete function that was never used
 
 export async function GET(request: Request) {
   try {

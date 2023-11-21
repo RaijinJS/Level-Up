@@ -4,21 +4,27 @@
 // TODO: Add register logic
 
 
-// TODO: Move form logic into a separate component. In this component we will add the auth logic. 
+// TODO: Move form logic into a separate component. In this component we will add the auth logic.
 
 const handleLogin = () => {
   window.location.href = "/HomePage";
 };
 
 export default function SignIn() {
-  return ( 
-    <div>
+  return (
+    // TODO: DONE - center login form
+    <div className="flex flex-col items-center">
       <div className="flex flex-col items-center justify-center w-full px-6 py-8 text-center md:w-1/2 lg:w-1/3">
         <h1 className="text-4xl font-bold text-gray-700">Welcome back!</h1>
-        <p className="mt-2 text-lg text-gray-600">Please sign in to your account.</p>
+        <p className="mt-2 text-lg text-gray-600">
+          Please sign in to your account.
+        </p>
         <form className="w-full max-w-md mt-8 space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-bold text-gray-700">
+            <label
+              htmlFor="name"
+              className="block text-sm font-bold text-gray-700"
+            >
               Name
             </label>
             <input
@@ -30,7 +36,10 @@ export default function SignIn() {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-bold text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-bold text-gray-700"
+            >
               Email address
             </label>
             <input
@@ -42,7 +51,10 @@ export default function SignIn() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-bold text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-bold text-gray-700"
+            >
               Password
             </label>
             <input
@@ -57,12 +69,16 @@ export default function SignIn() {
             <button
               type="button"
               className="w-full px-4 py-3 text-sm font-bold text-white bg-cyan-400 rounded-md hover:bg-cyan-600 focus:outline-none focus:shadow-outline"
-              onClick={handleLogin}>
+              onClick={handleLogin}
+            >
               Sign In
             </button>
           </div>
           <div className="flex justify-between mt-4">
-            <button type="button" className="text-sm text-cyan-600 hover:underline">
+            <button
+              type="button"
+              className="text-sm text-cyan-600 hover:underline"
+            >
               Forgot Password?
             </button>
             <button type="button" className="text-lg text-cyan-600 ">
@@ -71,12 +87,7 @@ export default function SignIn() {
           </div>
         </form>
       </div>
-      {/* TODO: delete below div */}
-      <div
-        className="hidden w-full bg-cover md:block md:w-1/2"
-        style={{ backgroundImage: "url('your-background-image-url.jpg')" }}>
-        {/* Background Image (if you have one) */}
-      </div>
+      {/* TODO: DONE - delete below unused div with empty image */}
     </div>
   );
 }

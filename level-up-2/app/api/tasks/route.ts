@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   }
 }
 
-// TODO: Delete duplicate GET function
+// TODO: DONE - Delete duplicate GET function
 export async function GET(request: Request) {
   try {
     await connectMongoDB();
