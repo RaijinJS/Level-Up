@@ -1,10 +1,15 @@
 "use client";
 
+import { useAppSelector } from "../../redux/store";
 import { startCelebration } from "../celebration";
 import { useEffect } from "react";
 
 // TODO: Redux edit props
-export default function ProgressionBar({ totalTasks, completedTasks }: { totalTasks: number; completedTasks: number }) {
+export default function ProgressionBar() {
+  const tasks = useAppSelector((state) => state.tasksReducer);
+
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
   const completionPercentage: number = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
   useEffect(() => {

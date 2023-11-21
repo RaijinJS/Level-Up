@@ -50,7 +50,7 @@ export default function Home() {
       <div className="pt-3">
         <a href="/Profile">
           {/* Put state below into redux and a provider function */}
-          <ProgressionBar totalTasks={tasks.length} completedTasks={tasks.filter((task) => task.completed).length} />
+          <ProgressionBar />
         </a>
       </div>
       {/* TODO: Make a TaskList component and move task logic into it. */}
