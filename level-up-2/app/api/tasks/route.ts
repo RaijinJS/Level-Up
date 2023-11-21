@@ -18,12 +18,11 @@ export async function POST(request: Request) {
   }
 }
 
-// TODO: DONE - Delete duplicate GET function
-export async function GET(request: Request) {
+export async function PUT(request: Request) {
   try {
     await connectMongoDB();
     const task = await Task.findOneAndUpdate({ added: false }, { $set: { added: true } }, { new: true });
-    return NextResponse.json([{ task }]);
+    return NextResponse.json(task);
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: `Error: ${error}` }, { status: 500 });

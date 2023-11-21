@@ -3,15 +3,17 @@
 import { useState } from "react";
 import TaskDetail from "../TaskDetail/TaskDetail";
 import { TaskType } from "../../app/types/Task";
+import { removeTask } from "../../redux/features/tasks-slice";
+import { useDispatch } from "react-redux";
+import { AppDispatch, useAppSelector } from "../../redux/store";
+
 // TODO: redux state reminder
-export default function TaskCard({
-  tasks,
-  setTasks,
-}: {
-  tasks: TaskType[];
-  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
-}) {
+
+export default function TaskCard() {
   const [selectedTask, setSelectedTask] = useState<null | TaskType>(null);
+
+  const dispatch = useDispatch<AppDispatch>();
+  const tasks = useAppSelector((state) => state.tasksReducer);
 
   const showTaskDetails: (task: null | TaskType) => void = (task: null | TaskType) => {
     setSelectedTask(task);
@@ -21,23 +23,34 @@ export default function TaskCard({
     setSelectedTask(null);
   };
 
-  // TODO: delete comments below
-  const onDelete: (taskId: string) => void = async (taskId: string) => {
-    // Logic for handling delete
-
+  const onDelete = async (task: TaskType) => {
     try {
-      const response: Response = await fetch(`http://localhost:3000/api/tasks/${taskId}/remove`, {
+      const response: Response = await fetch(`http://localhost:3000/api/tasks/${task._id}/remove`, {
         method: "PUT",
       });
-      const data: TaskType = await response.json();
-      if (data) {
-        const newTasks: TaskType[] = [...tasks.filter((t) => data._id !== t._id)];
-        setTasks(newTasks);
-      }
+      dispatch(removeTask(task._id));
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
   };
+
+  // TODO: delete comments below
+  // const onDelete: (taskId: string) => void = async (taskId: string) => {
+  //   // Logic for handling delete
+
+  //   try {
+  //     const response: Response = await fetch(`http://localhost:3000/api/tasks/${taskId}/remove`, {
+  //       method: "PUT",
+  //     });
+  //     const data: TaskType = await response.json();
+  //     if (data) {
+  //       const newTasks: TaskType[] = [...tasks.filter((t) => data._id !== t._id)];
+  //       setTasks(newTasks);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching tasks:", error);
+  //   }
+  // };
 
   // TODO: Once auth is implemented and we have users, update this and setTasks to be user specific
   const onToggleComplete: (taskId: string, completed: boolean) => void = async (taskId: string, completed: boolean) => {
@@ -48,21 +61,23 @@ export default function TaskCard({
       body: JSON.stringify({ newCompleted: !completed }),
     });
 
-    setTasks((currentTasks: TaskType[]) => {
-      // Update the completed status of the task
-      const updatedTasks: TaskType[] = currentTasks.map((task) =>
-        task._id === taskId ? { ...task, completed: !completed } : task,
-      );
+    // TODO find out wtf the below code does and write it better lol
 
-      const completedTasks: TaskType[] = updatedTasks.filter((task) => task.completed);
-      localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+    // setTasks((currentTasks: TaskType[]) => {
+    //   // Update the completed status of the task
+    //   const updatedTasks: TaskType[] = currentTasks.map((task) =>
+    //     task._id === taskId ? { ...task, completed: !completed } : task,
+    //   );
 
-      // Sort tasks to move completed ones to the bottom
-      return updatedTasks.sort((a: TaskType, b: TaskType) => {
-        if (a.completed === b.completed) return 0; // Keep original order if both have the same completed status
-        return a.completed ? 1 : -1;
-      });
-    });
+    //   const completedTasks: TaskType[] = updatedTasks.filter((task) => task.completed);
+    //   localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+
+    //   // Sort tasks to move completed ones to the bottom
+    //   return updatedTasks.sort((a: TaskType, b: TaskType) => {
+    //     if (a.completed === b.completed) return 0; // Keep original order if both have the same completed status
+    //     return a.completed ? 1 : -1;
+    //   });
+    // });
   };
 
   return (
@@ -118,7 +133,7 @@ export default function TaskCard({
                 {/* Delete */}
                 <button
                   data-testid="delete-button"
-                  onClick={() => onDelete(task._id)}
+                  onClick={() => onDelete(task)}
                   className="text-red-500 hover:text-red-600 transition-colors duration-300"
                   title="Delete?">
                   <svg

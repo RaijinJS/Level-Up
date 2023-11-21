@@ -3,27 +3,30 @@
 // TODO: delete comment
 //implement a button to skip line to the first completed task
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import TaskCard from "../../components/TaskCard/TaskCard";
 import ProgressionBar from "../../components/ProgressionBar/ProgressionBar";
 import { TaskType } from "../types/Task";
+import { setTask, addInitialTasks } from "../../redux/features/tasks-slice";
+import { useDispatch } from "react-redux";
+import { AppDispatch, useAppSelector } from "../../redux/store";
 
 export default function Home() {
   // TODO: Once auth is built in, keep track of user's current tasks in DB
-  const [tasks, setTasks] = useState<TaskType[]>([]);
+  const dispatch = useDispatch<AppDispatch>();
+  const tasks = useAppSelector((state) => state.tasksReducer);
 
-   useEffect(() => {
-     getAddedTasks()
-   }, []);
+  console.log(tasks);
 
-  const getAddedTasks: () => void = async () => {
+  useEffect(() => {
+    getAddedTasks();
+  }, []);
+
+  const getAddedTasks = async () => {
     try {
       const response: Response = await fetch("http://localhost:3000/api/tasks/added");
-      const data: { task: TaskType[] } = await response.json();
-      if (data && data.task) {
-        const newTasks: TaskType[] = [...data.task, ...tasks.filter((t) => !data.task.some((nt) => nt._id === t._id))];
-        setTasks(newTasks);
-      }
+      const data: TaskType[] = await response.json();
+      dispatch(addInitialTasks(data));
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
@@ -31,12 +34,11 @@ export default function Home() {
 
   const fetchTask = async () => {
     try {
-      const response: Response = await fetch("http://localhost:3000/api/tasks");
-      const data: { task: TaskType[] } = await response.json();
-      if (data) {
-        const newTasks: TaskType[] = [data[0].task, ...tasks.filter((t) => data[0].task._id !== t._id)];
-        setTasks(newTasks);
-      }
+      const response: Response = await fetch("http://localhost:3000/api/tasks", {
+        method: "PUT",
+      });
+      const task: TaskType = await response.json();
+      dispatch(setTask(task));
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
@@ -61,7 +63,7 @@ export default function Home() {
             </h3>
           </div>
         ) : (
-          <TaskCard tasks={tasks} setTasks={setTasks} />
+          <TaskCard />
         )}
       </div>
 
