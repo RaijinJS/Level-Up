@@ -11,6 +11,11 @@ export default function Profile() {
   const [completedTasks, setCompletedTasks] = useState<TaskType[]>([]);
   const [selectedTask, setSelectedTask] = useState<TaskType | null>(null);
 
+  // TODO Create a taskList component that shows the different tasks. We can re-use this TaskList component on the homepage as well.
+  // By creating that component we will move all of the state logic out of this page. 
+
+  // Every route should be SSR. State management is done in the components. 
+
   const showTaskDetails = (task: TaskType) => {
     setSelectedTask(task);
   };
