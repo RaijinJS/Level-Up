@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { TaskType } from "../../types/Task";
+import { TaskType } from "../types/Task";
 
 const taskSchema = new Schema<TaskType>({
   title: String,
@@ -13,4 +13,4 @@ const taskSchema = new Schema<TaskType>({
 const Task = mongoose.models.Task || mongoose.model<TaskType>("Task", taskSchema);
 export default Task;
 
-// TODO: DONE - Move to new lib folder
+// TODO: DONE - Move to new model folder

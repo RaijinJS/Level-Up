@@ -1,0 +1,69 @@
+"use client";
+
+import Link from "next/link";
+
+//TODO: Add actual auth logic
+// TODO: Add register logic
+
+// TODO: Move form logic into a separate component. In this component we will add the auth logic.
+
+export default function SignInForm() {
+  return (
+    <>
+      <p className="mt-2 text-lg text-gray-600">
+        Please sign in to your account.
+      </p>
+      <form className="w-full max-w-md mt-8 space-y-6">
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-bold text-gray-700"
+          >
+            Email address
+          </label>
+          <input
+            id="email"
+            type="text"
+            placeholder="Enter your email"
+            className="w-full px-4 py-3 mt-1 border rounded-md focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            required
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="password"
+            className="block text-sm font-bold text-gray-700"
+          >
+            Password
+          </label>
+          <input
+            id="password"
+            type="text"
+            placeholder="Enter your password"
+            className="w-full px-4 py-3 mt-1 border rounded-md focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            required
+          />
+        </div>
+        <div>
+          <button
+            type="button"
+            className="w-full px-4 py-3 text-sm font-bold text-white bg-cyan-400 rounded-md hover:bg-cyan-600 focus:outline-none focus:shadow-outline"
+            // onClick={handleLogin}
+          >
+            Sign In
+          </button>
+          <div className="flex justify-end mt-4">
+            <Link href={"/register"}>
+              <button type="button" className="text-lg text-cyan-600 ">
+                Sign Up
+              </button>
+            </Link>
+          </div>
+          <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
+            Error message
+          </div>
+        </div>
+      </form>
+    </>
+  );
+}
