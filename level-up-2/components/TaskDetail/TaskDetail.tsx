@@ -33,7 +33,7 @@ const TaskDetail: React.FC = () => {
 
   if (selectedTask)
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 transition-opacity duration-300 ease-in-out">
+      <div className="fixed inset-0 bg-black bg-opacity-10 flex justify-center items-center p-4 transition-opacity duration-300 ease-in-out">
         <div
           className="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full"
           ref={modalRef}
