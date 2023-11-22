@@ -35,7 +35,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
             testId="tips-button"
             title="tips"
             className="text-blue-500 hover:text-blue-600 transition-colors duration-300 pr-12 ">
-            {/* TODO: Turn this SVG into an image */}
+            {/* TODO: DONE - Not possible to turn this SVG into a next image component due to change in texture */}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="black">
               <path
                 strokeLinecap="round"

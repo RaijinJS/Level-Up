@@ -21,8 +21,29 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
   try {
     await connectMongoDB();
-    const task = await Task.findOneAndUpdate({ added: false }, { $set: { added: true } }, { new: true });
-    return NextResponse.json(task);
+
+    // Find a random task with added set to false
+    const randomTask = await Task.aggregate([
+      { $match: { added: false } },
+      { $sample: { size: 1 } },
+    ]);
+
+    if (!randomTask || randomTask.length === 0) {
+      console.log('none left')
+      return NextResponse.json(
+        { message: "No unadded tasks remaining" },
+        { status: 404 }
+      );
+    }
+
+    // Update the selected task's added field to true
+    const updatedTask = await Task.findOneAndUpdate(
+      { _id: randomTask[0]._id },
+      { $set: { added: true } },
+      { new: true }
+    );
+
+    return NextResponse.json(updatedTask);
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: `Error: ${error}` }, { status: 500 });

@@ -33,8 +33,12 @@ export const FetchTaskButton = () => {
       const response: Response = await fetch("http://localhost:3000/api/tasks", {
         method: "PUT",
       });
-      const task: TaskType = await response.json();
-      dispatch(setTask(task));
+      const task: TaskType | {message: string, status: number} = await response.json();
+      if ('title' in task) {
+        dispatch(setTask(task));
+      } else {
+        console.log(task.message)
+      }
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
