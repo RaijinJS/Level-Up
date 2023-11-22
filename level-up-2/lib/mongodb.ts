@@ -4,7 +4,6 @@ const connectMongoDB = async () => {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/Tasks");
     // TODO: DONE -  Delete commented console.log
-    // console.log("MongoDB connected");
   } catch (error) {
     console.log(error);
   }

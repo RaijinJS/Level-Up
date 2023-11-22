@@ -16,7 +16,6 @@ const TaskDetail: React.FC = () => {
   // TODO: why is this in a useEffect hook and why are we using document.eventListener?
   useEffect(() => {
     const handleClickOutside: (event: MouseEvent) => void = (event) => {
-      console.log(event);
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         closeTaskDetails();
       }

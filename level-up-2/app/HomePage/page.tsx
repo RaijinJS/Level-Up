@@ -4,7 +4,6 @@ import { FetchTaskButton } from "../../components/Buttons";
 import TaskListHome from "../../components/TaskList/TaskListHome";
 
 export default function Home() {
-  // TODO: Once auth is built in, keep track of user's current tasks in DB
 
   return (
     <div>
@@ -13,7 +12,7 @@ export default function Home() {
           <ProgressionBar />
         </a>
       </div>
-      {/* TODO: DONE Make a TaskList component and move task logic into it. */}
+      {/* TODO: DONE - Make a TaskList component and move task logic into it. */}
       <div className="container mx-auto px-4 pt-2">
         <TaskListHome />
       </div>

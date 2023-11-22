@@ -11,7 +11,6 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-  // TODO: Once auth is implemented and we have users, update this and setTasks to be user specific
 
   return (
     <>
