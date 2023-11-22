@@ -1,24 +1,25 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
-import { TaskType } from "../../app/types/Task";
 import closeButton from "../../public/closeButton.svg";
 import Image from "next/image";
+import { AppDispatch, useAppSelector } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { setSelectedTask } from "../../redux/features/tasks-slice";
 
-interface TaskDetailProps {
-  task: TaskType;
-  onClose: () => void;
-  showImage: boolean;
-}
-
-const TaskDetail: React.FC<TaskDetailProps> = ({ task, onClose, showImage }) => {
+const TaskDetail: React.FC = () => {
   //TODO: DONE -  Set useRef to null first then add typescript to it
   const modalRef = useRef<HTMLDivElement | null>(null);
+  const selectedTask = useAppSelector((state) => state.tasksReducer.selectedTask);
+  const dispatch = useDispatch<AppDispatch>();
 
   // Close modal when clicking outside of it
+  // TODO: why is this in a useEffect hook and why are we using document.eventListener?
   useEffect(() => {
     const handleClickOutside: (event: MouseEvent) => void = (event) => {
       console.log(event);
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        onClose();
+        closeTaskDetails();
       }
     };
 
@@ -26,36 +27,35 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, onClose, showImage }) => 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [onClose]);
+  }, []);
 
-  if (!task) return null;
+  const closeTaskDetails = () => {
+    dispatch(setSelectedTask(null));
+  };
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 transition-opacity duration-300 ease-in-out">
-      <div
-        className="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full"
-        ref={modalRef}
-        style={{
-          transition: "transform 1s ease-in-out",
-          transform: "scale(1)",
-        }}
-      >
-        {/* TODO: DONE - Delete or fix unrendered div below */}
-        {/* TODO: DONE - Align title and close button at top of popup and remove unneeded comment */}
-        <div className="flex justify-between">
-          <h1 className="text-2xl font-bold text-orange-400">{task.title}</h1>
-          <button
-            onClick={onClose}
-            className="text-gray-600 hover:text-gray-800"
-          >
-            {/* TODO: DONE - Either make svg a component or simplify with an "X" */}
-            <Image src={closeButton} alt="Close Button" className="h-6 w-6" />
-          </button>
+  if (selectedTask)
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 transition-opacity duration-300 ease-in-out">
+        <div
+          className="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full"
+          ref={modalRef}
+          style={{
+            transition: "transform 1s ease-in-out",
+            transform: "scale(1)",
+          }}>
+          {/* TODO: DONE - Delete or fix unrendered div below */}
+          {/* TODO: DONE - Align title and close button at top of popup and remove unneeded comment */}
+          <div className="flex justify-between">
+            <h1 className="text-2xl font-bold text-orange-400">{selectedTask.title}</h1>
+            <button onClick={closeTaskDetails} className="text-gray-600 hover:text-gray-800">
+              {/* TODO: DONE - Either make svg a component or simplify with an "X" */}
+              <Image src={closeButton} alt="Close Button" className="h-6 w-6" />
+            </button>
+          </div>
+          <h3 className="text-gray-600 pt-4">{selectedTask.more}</h3>
         </div>
-        <h3 className="text-gray-600 pt-4">{task.more}</h3>
       </div>
-    </div>
-  );
+    );
 };
 
 export default TaskDetail;

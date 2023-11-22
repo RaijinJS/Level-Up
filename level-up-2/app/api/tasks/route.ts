@@ -1,5 +1,5 @@
-import connectMongoDB from "../../lib/mongodb";
-import Task from "../../lib/model/Task";
+import connectMongoDB from "../../../lib/mongodb";
+import Task from "../../../lib/model/Task";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {

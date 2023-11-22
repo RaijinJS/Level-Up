@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { TaskType } from "../../types/Task";
+import { TaskType } from "../../app/types/Task";
 
 const taskSchema = new Schema<TaskType>({
   title: String,

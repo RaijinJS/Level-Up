@@ -3,7 +3,7 @@ import "./globals.css";
 import Favicon from "../public/favicon.ico";
 import { Metadata } from "next";
 import { ReduxProvider } from "../redux/provider";
-// TODO: add redux here
+// TODO: DONE add redux here
 
 const nunito = Nunito({
   weight: ["600", "700"],
@@ -22,9 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <ReduxProvider>
-        <body
-          className={`${nunito.className} bg-gradient-to-r from-orange-100 via-orange-200 to-orange-300`}
-        >
+        <body className={`${nunito.className} bg-gradient-to-r from-orange-100 via-orange-200 to-orange-300`}>
           {/* TODO: DONE - HTML Structure has repeated main semantic HTML. Pick one */}
           <main className="m-0">{children}</main>
         </body>
