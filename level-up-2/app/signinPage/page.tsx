@@ -1,7 +1,6 @@
-//TODO: Add actual auth logic
-// TODO: Add register logic
+//TODO: DONE - Add actual auth logic
 
-// TODO: Move form logic into a separate component. In this component we will add the auth logic.
+// TODO: DONE - Move form logic into a separate component. In this component we will add the auth logic.
 
 import SignInForm from "../../components/SignInForm/SignInForm";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";

@@ -16,7 +16,6 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, onClose, showImage }) => 
   // Close modal when clicking outside of it
   useEffect(() => {
     const handleClickOutside: (event: MouseEvent) => void = (event) => {
-      console.log(event);
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         onClose();
       }

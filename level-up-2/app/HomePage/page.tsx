@@ -13,11 +13,8 @@ import addButton from "../../public/addButton.svg";
 import Image from "next/image";
 
 export default function Home() {
-  // TODO: Once auth is built in, keep track of user's current tasks in DB
   const dispatch = useDispatch<AppDispatch>();
   const tasks = useAppSelector((state) => state.tasksReducer);
-
-  console.log(tasks);
 
   useEffect(() => {
     getAddedTasks();

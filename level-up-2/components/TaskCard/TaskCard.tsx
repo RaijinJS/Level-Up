@@ -36,7 +36,6 @@ export default function TaskCard() {
 
   // TODO: DONE - delete comments below
 
-  // TODO: Once auth is implemented and we have users, update this and setTasks to be user specific
   const onToggleComplete: (taskId: string, completed: boolean) => void = async (taskId: string, completed: boolean) => {
     // Logic for handling toggle complete
     await fetch(`http://localhost:3000/api/tasks/${taskId}`, {

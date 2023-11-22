@@ -5,11 +5,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-//TODO: Add actual auth logic
 // TODO: Add register logic
-
-// TODO: Move form logic into a separate component. In this component we will add the auth logic.
-
 export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +21,6 @@ export default function SignInForm() {
         password,
         redirect: false,
       });
-      console.log(res)
       if (res?.error) {
         setError("Invalid credentials");
         return;
