@@ -3,15 +3,14 @@
 import React, { useEffect, useRef } from "react";
 import closeButton from "../../public/closeButton.svg";
 import Image from "next/image";
-import { AppDispatch, useAppSelector } from "../../redux/store";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setSelectedTask } from "../../redux/features/tasks-slice";
 
 const TaskDetail: React.FC = () => {
   //TODO: DONE -  Set useRef to null first then add typescript to it
   const modalRef = useRef<HTMLDivElement | null>(null);
-  const selectedTask = useAppSelector((state) => state.tasksReducer.selectedTask);
-  const dispatch = useDispatch<AppDispatch>();
+  const selectedTask = useAppSelector((state) => state.tasks.selectedTask);
+  const dispatch = useAppDispatch();
 
   // Close modal when clicking outside of it
   // TODO: why is this in a useEffect hook and why are we using document.eventListener?

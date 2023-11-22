@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import Profile from "../page";
 import ProfileLayout from "../layout";
+import { renderWithProviders } from "../../../utils/tests/test.utils";
 
 describe("Profile", () => {
   beforeEach(() => {
     // ARRANGE
-    render(<Profile/>);
+    renderWithProviders(<Profile />);
   });
 
   it("should contain a 'Your Progress' title", () => {
@@ -15,7 +16,6 @@ describe("Profile", () => {
     // ASSERT
     expect(progressTitle).toBeInTheDocument();
   });
-
 
   it("should show the right progress level", () => {
     // ACT
@@ -50,12 +50,10 @@ describe("Profile", () => {
     }
   });
 
-
-
   describe("Profile Navigation", () => {
     beforeEach(() => {
       // ARRANGE
-      render(<ProfileLayout children={''} />);
+      renderWithProviders(<ProfileLayout children={""} />);
     });
 
     it("should render home button for redirection", () => {
@@ -81,7 +79,5 @@ describe("Profile", () => {
       // ASSERT
       expect(logOut).toBeInTheDocument();
     });
-
   });
-
 });

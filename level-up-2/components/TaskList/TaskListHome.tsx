@@ -2,14 +2,13 @@
 
 import React, { useEffect } from "react";
 import TaskCard from "../TaskCard/TaskCard";
-import { AppDispatch, useAppSelector } from "../../redux/store";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { addInitialTasks } from "../../redux/features/tasks-slice";
 import { TaskType } from "../../app/types/Task";
 
 export default function TaskListHome() {
-  const tasks = useAppSelector((state) => state.tasksReducer.tasks);
-  const dispatch = useDispatch<AppDispatch>();
+  const tasks = useAppSelector((state) => state.tasks.tasks);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     getAddedTasks();
@@ -37,7 +36,7 @@ export default function TaskListHome() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {tasks.map((task) => (
-            <TaskCard task={task} />
+            <TaskCard key={task._id} task={task} />
           ))}
         </div>
       )}

@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import SignIn from "../page";
+import { renderWithProviders } from "../../../utils/tests/test.utils";
 
 describe("SignIn", () => {
   beforeEach(() => {
     // ARRANGE
-    render(<SignIn/>);
+    renderWithProviders(<SignIn />);
   });
 
   it("should contain a 'Your Progress' title", () => {

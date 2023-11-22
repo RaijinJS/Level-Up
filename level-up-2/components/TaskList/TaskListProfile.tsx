@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { AppDispatch, useAppSelector } from "../../redux/store";
-import { useDispatch } from "react-redux";
-import { setCompletedTasks, setSelectedTask } from "../../redux/features/tasks-slice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setCompletedTasks } from "../../redux/features/tasks-slice";
 import { TaskType } from "../../app/types/Task";
 import { TaskDetailsButton } from "../Buttons";
 
 export default function TaskListProfile() {
-  const completedTasks = useAppSelector((state) => state.tasksReducer.completedTasks);
-  const dispatch = useDispatch<AppDispatch>();
+  const completedTasks = useAppSelector((state) => state.tasks.completedTasks);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const fetchCompletedTasks = async () => {
