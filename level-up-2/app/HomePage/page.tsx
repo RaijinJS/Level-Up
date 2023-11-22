@@ -46,7 +46,7 @@ export default function Home() {
     <div>
       <div className="pt-3">
         <a href="/Profile">
-          {/* Put state below into redux and a provider function */}
+          {/* TODO: Put state below into redux and a provider function */}
           <ProgressionBar
             totalTasks={tasks.length}
             completedTasks={tasks.filter((task) => task.completed).length}
