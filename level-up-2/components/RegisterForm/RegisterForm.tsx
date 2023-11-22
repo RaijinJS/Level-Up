@@ -3,6 +3,7 @@
 import Link from "next/link";
 // TODO: Delete useState import after replace with redux
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
   // TODO: Replace with redux
@@ -10,6 +11,8 @@ export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,26 +23,44 @@ export default function RegisterForm() {
     }
 
     try {
-      const res = await fetch("api/register", {
+      const resUserExists = await fetch("api/userExists", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
           email,
-          password,
         }),
       });
 
-      if (res.ok) {
-        const form = e.target;
-        form.reset()
+      const { user } = await resUserExists.json();
+
+      if (user) {
+        setError("User already exists.");
+        return;
       } else {
-        console.log("User registration failed.");
+        const res = await fetch("api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        });
+
+        if (res.ok) {
+          const form = e.target;
+          form.reset();
+          router.push("/signinPage");
+        } else {
+          console.log("User registration failed.");
+        }
       }
     } catch (error) {
-      console.log("Error during registration: ", error)
+      console.log("Error during registration: ", error);
     }
   };
 

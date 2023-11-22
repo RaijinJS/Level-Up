@@ -1,6 +1,9 @@
+"use client"
+
 import React from "react";
 import home from "../../public/home.svg";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 
 export default function ProfileLayout({
   children,
@@ -30,10 +33,11 @@ export default function ProfileLayout({
           </a>
         </div>
         <div className="pr-4">
+          {/* TODO: verify if needed in anchor below: href="/signinPage"*/}
           <a
+            onClick={() => signOut()}
+            className="cursor-pointer flex-shrink-0 text-white bg-red-600 hover:bg-red-700 px-2 py-2  rounded-lg transition-colors duration-300"
             data-testid="logOutButton"
-            href="/signinPage"
-            className="flex-shrink-0 text-white bg-red-600 hover:bg-red-700 px-2 py-2  rounded-lg transition-colors duration-300"
           >
             Log out
           </a>
