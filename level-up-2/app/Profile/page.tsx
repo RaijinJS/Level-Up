@@ -42,22 +42,23 @@ export default function Profile() {
     fetchCompletedTasks();
   }, []);
   // TODO: DONE - make below a switch statement
-const achievementMessage = () => {
-  const count = completedTasks.length;
-  switch (true) {
-    case count > 20:
-      return "🌟 Master 🌟";
-    case count > 15:
-      return "Advanced ⭐";
-    case count > 10:
-      return "Pro 🏆";
-    case count >= 5:
-      return "Amateur 🚀";
-    case count > 0:
-      return "Rookie 🌱";
-    default:
-      return "🎯 Set your first task! 🎯";
-  }};
+  const achievementMessage = () => {
+    const count = completedTasks.length;
+    switch (true) {
+      case count > 20:
+        return "🌟 Master 🌟";
+      case count > 15:
+        return "Advanced ⭐";
+      case count > 10:
+        return "Pro 🏆";
+      case count >= 5:
+        return "Amateur 🚀";
+      case count > 0:
+        return "Rookie 🌱";
+      default:
+        return "🎯 Set your first task! 🎯";
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-max">
@@ -65,35 +66,26 @@ const achievementMessage = () => {
         <h2 className="text-3xl font-bold text-gray-700 mb-4">Your Progress</h2>
         <p className="text-xl text-gray-600 mb-8">
           You have completed
-          <span
-            data-testid="count"
-            className="text-2xl font-bold text-green-600 mx-2"
-          >
+          <span data-testid="count" className="text-2xl font-bold text-green-600 mx-2">
             {completedTasks.length}
           </span>
           {completedTasks.length === 1 ? "task" : "tasks"}.
         </p>
         <p
           data-testid="level"
-          className="text-lg font-semibold text-orange-700 py-3 px-6 rounded-lg bg-gradient-to-r from-pink-300 via-orange-300  inline-block  "
-        >
+          className="text-lg font-semibold text-orange-700 py-3 px-6 rounded-lg bg-gradient-to-r from-pink-300 via-orange-300  inline-block  ">
           {achievementMessage()}
         </p>
 
         <div className="mt-6">
           {completedTasks.length > 0 && (
             <>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                Completed Tasks:
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Completed Tasks:</h3>
               <ul className="list-disc list-inside text-left pt-5">
                 {completedTasks.map((task: TaskType) => (
                   <li key={task._id} className="mb-2 text-gray-600">
                     {/* format buttons to look like links */}
-                    <button
-                      onClick={() => showTaskDetails(task)}
-                      className="hover:text-orange-500 text-left"
-                    >
+                    <button onClick={() => showTaskDetails(task)} className="hover:text-orange-500 text-left">
                       {task.title}
                     </button>
                   </li>
@@ -103,13 +95,7 @@ const achievementMessage = () => {
           )}
         </div>
       </div>
-      {selectedTask && (
-        <TaskDetail
-          task={selectedTask}
-          onClose={closeTaskDetails}
-          showImage={true}
-        />
-      )}
+      {selectedTask && <TaskDetail task={selectedTask} onClose={closeTaskDetails} showImage={true} />}
     </div>
   );
 }

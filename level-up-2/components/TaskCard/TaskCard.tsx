@@ -3,7 +3,7 @@
 import { useState } from "react";
 import TaskDetail from "../TaskDetail/TaskDetail";
 import { TaskType } from "../../app/types/Task";
-import { removeTask } from "../../redux/features/tasks-slice";
+import { removeTask, toggleComplete } from "../../redux/features/tasks-slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch, useAppSelector } from "../../redux/store";
 
@@ -34,34 +34,14 @@ export default function TaskCard() {
     }
   };
 
-  // TODO: DONE - delete comments below
-
   // TODO: Once auth is implemented and we have users, update this and setTasks to be user specific
   const onToggleComplete: (taskId: string, completed: boolean) => void = async (taskId: string, completed: boolean) => {
-    // Logic for handling toggle complete
     await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newCompleted: !completed }),
     });
-
-    // TODO find out wtf the below code does and write it better lol
-
-    // setTasks((currentTasks: TaskType[]) => {
-    //   // Update the completed status of the task
-    //   const updatedTasks: TaskType[] = currentTasks.map((task) =>
-    //     task._id === taskId ? { ...task, completed: !completed } : task,
-    //   );
-
-    //   const completedTasks: TaskType[] = updatedTasks.filter((task) => task.completed);
-    //   localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
-
-    //   // Sort tasks to move completed ones to the bottom
-    //   return updatedTasks.sort((a: TaskType, b: TaskType) => {
-    //     if (a.completed === b.completed) return 0; // Keep original order if both have the same completed status
-    //     return a.completed ? 1 : -1;
-    //   });
-    // });
+    dispatch(toggleComplete(taskId));
   };
 
   return (
