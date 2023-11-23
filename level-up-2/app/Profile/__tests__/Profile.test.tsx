@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Profile from "../page";
 import ProfileLayout from "../layout";
 import { renderWithProviders } from "../../../utils/tests/test.utils";

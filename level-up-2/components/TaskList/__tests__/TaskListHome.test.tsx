@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import { tasks } from "../../../utils/tests/tasks.mocks";
 import { setupStore } from "../../../redux/store";
 import { addInitialTasks } from "../../../redux/features/tasks-slice";
@@ -13,7 +12,7 @@ store.dispatch(addInitialTasks(tasks));
 
 describe("TaskList", () => {
   it("should render the correct amount of task cards", async () => {
-    const mockResponse: MockResponseInitFunction = async (req) => {
+    const mockResponse: MockResponseInitFunction = async () => {
       return new Promise((resolve) => {
         resolve({
           body: JSON.stringify(tasks),
