@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
   // TODO: Replace with redux
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!name || !email || !password) {
@@ -52,7 +52,7 @@ export default function RegisterForm() {
         });
 
         if (res.ok) {
-          const form = e.target;
+          const form = e.target as HTMLFormElement;
           form.reset();
           router.push("/signinPage");
         } else {

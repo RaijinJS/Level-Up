@@ -2,6 +2,7 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+
 // TODO: DONE - Add register logic
 
 export default async function Register() {

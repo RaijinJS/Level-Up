@@ -5,7 +5,10 @@ import connectMongoDB from "../../../../lib/mongodb";
 import User from "../../../model/User";
 import bcrypt from "bcryptjs";
 
-// const NEXTAUTH_SECRET = "randomstring";
+interface ICredentials {
+  email: string;
+  password: string;
+}
 
 export const authOptions = {
   providers: [
@@ -13,7 +16,7 @@ export const authOptions = {
       name: "credentials",
       credentials: {},
 
-      async authorize(credentials) {
+      async authorize(credentials: ICredentials) {
         const { email, password } = credentials;
         try {
           await connectMongoDB();
