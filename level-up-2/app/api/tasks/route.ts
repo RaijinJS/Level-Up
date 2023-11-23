@@ -8,9 +8,15 @@ export async function POST(request: Request) {
     await connectMongoDB();
     const res = await Task.create({ title, description, image });
     if (res.ok) {
-      return NextResponse.json({ message: "Task generated successfully" }, { status: 201 });
+      return NextResponse.json(
+        { message: "Task generated successfully" },
+        { status: 201 }
+      );
     } else {
-      return NextResponse.json({ message: "Task could not be created" }, { status: 500 });
+      return NextResponse.json(
+        { message: "Task could not be created" },
+        { status: 500 }
+      );
     }
   } catch (error) {
     console.log(error);
@@ -21,8 +27,23 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
   try {
     await connectMongoDB();
-    const task = await Task.findOneAndUpdate({ added: false }, { $set: { added: true } }, { new: true });
-    return NextResponse.json(task);
+    const randomTask = await Task.aggregate([
+      { $match: { added: false } },
+      { $sample: { size: 1 } },
+    ]);
+    if (!randomTask || randomTask.length === 0) {
+      console.log("none left");
+      return NextResponse.json(
+        { message: "No unadded tasks remaining" },
+        { status: 404 }
+      );
+    }
+    const updatedTask = await Task.findOneAndUpdate(
+      { _id: randomTask[0]._id },
+      { $set: { added: true } },
+      { new: true }
+    );
+    return NextResponse.json(updatedTask);
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: `Error: ${error}` }, { status: 500 });
