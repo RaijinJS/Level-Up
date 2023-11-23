@@ -2,16 +2,25 @@ import connectMongoDB from "../../../../lib/mongodb";
 import Task from "../../../model/Task";
 import { NextResponse } from "next/server";
 
-export async function PUT(request: Request, { params }: { params: { id: number } }) {
+export async function PUT(
+  request: Request,
+  { params }: { params: { id: number } },
+) {
   try {
     const { id } = params;
     const { newCompleted: completed } = await request.json();
     await connectMongoDB();
     const res = await Task.findByIdAndUpdate(id, { completed });
     if (res && res.ok) {
-      return NextResponse.json({ message: "Task updated successfully" }, { status: 200 });
+      return NextResponse.json(
+        { message: "Task updated successfully" },
+        { status: 200 },
+      );
     } else {
-      return NextResponse.json({ message: "Task could not be updated", status: 500 });
+      return NextResponse.json({
+        message: "Task could not be updated",
+        status: 500,
+      });
     }
   } catch (error) {
     console.log(error);

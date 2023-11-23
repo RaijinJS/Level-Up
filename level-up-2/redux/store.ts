@@ -1,4 +1,8 @@
-import { configureStore, combineReducers, PreloadedState } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  combineReducers,
+  PreloadedState,
+} from "@reduxjs/toolkit";
 import tasksReducer from "./features/tasks-slice";
 
 const rootReducer = combineReducers({

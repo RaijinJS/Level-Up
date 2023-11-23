@@ -45,7 +45,9 @@ export const tasks = createSlice({
     },
 
     toggleComplete: (state, action: PayloadAction<string>) => {
-      const index = state.tasks.findIndex((task) => task._id === action.payload);
+      const index = state.tasks.findIndex(
+        (task) => task._id === action.payload,
+      );
       state.tasks[index].completed = !state.tasks[index].completed;
       state.tasks.sort((a, b) => {
         if (a.completed === b.completed) return 0;
@@ -63,6 +65,12 @@ export const tasks = createSlice({
   },
 });
 
-export const { setTask, removeTask, addInitialTasks, toggleComplete, setSelectedTask, setCompletedTasks } =
-  tasks.actions;
+export const {
+  setTask,
+  removeTask,
+  addInitialTasks,
+  toggleComplete,
+  setSelectedTask,
+  setCompletedTasks,
+} = tasks.actions;
 export default tasks.reducer;
