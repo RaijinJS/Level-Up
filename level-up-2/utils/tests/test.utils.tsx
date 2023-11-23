@@ -19,7 +19,7 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {
-  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+  function Wrapper({ children }: PropsWithChildren<NonNullable<unknown>>): JSX.Element {
     return <Provider store={store}>{children}</Provider>;
   }
 
