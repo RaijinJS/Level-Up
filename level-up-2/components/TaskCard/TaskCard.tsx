@@ -11,7 +11,7 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-
+  
   return (
     <>
       <div
