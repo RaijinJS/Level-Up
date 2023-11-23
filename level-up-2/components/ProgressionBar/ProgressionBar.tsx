@@ -4,7 +4,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { startCelebration } from "../celebration";
 import { useEffect } from "react";
 
-// TODO: DONE Redux edit props
+// TODO: DONE - Redux edit props
 export default function ProgressionBar() {
   const tasks = useAppSelector((state) => state.tasks.tasks);
 
@@ -17,8 +17,7 @@ export default function ProgressionBar() {
       startCelebration();
     }
   }, [completionPercentage]);
-  
-  // TODO: Replace this class toggling logic with clsx package implementation
+
   let barColorClass: string;
   if (completionPercentage === 0) {
     barColorClass = "";

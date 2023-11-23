@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setError, setUserEmail, setUserPassword } from "../../redux/features/auth-slice";
 
-// TODO: DONE Add register logic
+// TODO: DONE - Add register logic
 export default function SignInForm() {
   const { email, password } = useAppSelector((state) => state.auth.user);
   const error = useAppSelector((state) => state.auth.error);
@@ -74,7 +74,6 @@ export default function SignInForm() {
             </Link>
           </div>
         </div>
-        {/* TODO: DONE Update error to redux state equivalent */}
         {error && <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">{error}</div>}
       </form>
     </>

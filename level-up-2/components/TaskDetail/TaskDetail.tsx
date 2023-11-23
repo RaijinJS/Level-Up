@@ -13,7 +13,6 @@ const TaskDetail: React.FC = () => {
   const dispatch = useAppDispatch();
 
   // Close modal when clicking outside of it
-  // TODO: why is this in a useEffect hook and why are we using document.eventListener?
   useEffect(() => {
     const handleClickOutside: (event: MouseEvent) => void = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {

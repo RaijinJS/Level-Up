@@ -1,17 +1,17 @@
 "use client";
-// TODO: DONE Split logic between TaskList and TaskCard
+// TODO: DONE - Split logic between TaskList and TaskCard
 import TaskDetail from "../TaskDetail/TaskDetail";
 import { TaskType } from "../../app/types/Task";
 import { DeleteButton, TaskDetailsButton, ToggleCompleteButton } from "../Buttons";
 
-// TODO: DONE redux state reminder
+// TODO: DONE - redux states
 
 interface TaskCardProps {
   task: TaskType;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-  
+
   return (
     <>
       <div
@@ -21,7 +21,6 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
           task.completed ? "opacity-50" : "opacity-100"
         }`}>
         <TaskDetailsButton task={task} className="block">
-          {/* TODO: turn this image into a Next image. Currently when doing that has a width issue */}
           <img className="w-full h-48 object-cover" src={task.image} alt={task.title} />
         </TaskDetailsButton>
         <div className="p-4 flex-grow">
@@ -35,7 +34,6 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
             testId="tips-button"
             title="tips"
             className="text-blue-500 hover:text-blue-600 transition-colors duration-300 pr-12 ">
-            {/* TODO: DONE - Not possible to turn this SVG into a next image component due to change in texture */}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="black">
               <path
                 strokeLinecap="round"

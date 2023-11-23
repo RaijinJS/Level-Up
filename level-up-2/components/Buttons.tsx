@@ -48,7 +48,7 @@ export const FetchTaskButton = () => {
     <button
       onClick={fetchTask}
       className="bg-red-300 text-white p-4 rounded-full shadow-lg animate-pulse transition-all duration-200 ease-in-out transform hover:scale-110 cursor-pointer">
-      {/* TODO: DONE Make svg below a component */}
+      {/* TODO: DONE - Make svg below a component */}
       <Image src={addButton} alt="Add Button" className="h-6 w-6" />
     </button>
   );
@@ -103,7 +103,6 @@ export const DeleteButton: React.FC<TaskCardButtonProps> = ({ task }) => {
       onClick={() => onDelete(task)}
       className="text-red-500 hover:text-red-600 transition-colors duration-300"
       title="Delete?">
-      {/* TODO: Turn this SVG into an image */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
