@@ -1,8 +1,10 @@
 import { configureStore, combineReducers, PreloadedState } from "@reduxjs/toolkit";
 import tasksReducer from "./features/tasks-slice";
+import authReducer from "./features/auth-slice";
 
 const rootReducer = combineReducers({
   tasks: tasksReducer,
+  auth: authReducer,
 });
 
 export function setupStore(preloadedState?: PreloadedState<RootState>) {

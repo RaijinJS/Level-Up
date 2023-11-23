@@ -4,21 +4,27 @@ import Link from "next/link";
 // TODO: Delete useState import after replace with redux
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setError, setUserEmail, setUserName, setUserPassword } from "../../redux/features/auth-slice";
 
 export default function RegisterForm() {
   // TODO: Replace with redux
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [error, setError] = useState("");
+
+  const newUser = useAppSelector((state) => state.auth.user);
+  const error = useAppSelector((state) => state.auth.error);
+  const dispatch = useAppDispatch();
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !password) {
-      setError("All fields required.");
+    if (!newUser.name || !newUser.email || !newUser.password) {
+      dispatch(setError("All fields required."));
       return;
     }
 
@@ -29,14 +35,15 @@ export default function RegisterForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
+          // Used to be just the email, not sure if this connects well to the API
+          newUser,
         }),
       });
 
       const { user } = await resUserExists.json();
 
       if (user) {
-        setError("User already exists.");
+        dispatch(setError("User already exists."));
         return;
       } else {
         const res = await fetch("api/register", {
@@ -45,9 +52,8 @@ export default function RegisterForm() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name,
-            email,
-            password,
+            // Used to be each property individually, not sure if it works like this
+            newUser,
           }),
         });
 
@@ -69,14 +75,11 @@ export default function RegisterForm() {
       <p className="mt-2 text-lg text-gray-600">Please register.</p>
       <form onSubmit={handleSubmit} className="w-full max-w-md mt-8 space-y-6">
         <div>
-          <label
-            htmlFor="fullname"
-            className="block text-sm font-bold text-gray-700"
-          >
+          <label htmlFor="fullname" className="block text-sm font-bold text-gray-700">
             Full Name
           </label>
           <input
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => dispatch(setUserName(e.target.value))}
             id="fullname"
             type="text"
             placeholder="Enter your full name"
@@ -84,14 +87,11 @@ export default function RegisterForm() {
           />
         </div>
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-bold text-gray-700"
-          >
+          <label htmlFor="email" className="block text-sm font-bold text-gray-700">
             Email address
           </label>
           <input
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => dispatch(setUserEmail(e.target.value))}
             id="email"
             type="text"
             placeholder="Enter your email"
@@ -99,14 +99,11 @@ export default function RegisterForm() {
           />
         </div>
         <div>
-          <label
-            htmlFor="password"
-            className="block text-sm font-bold text-gray-700"
-          >
+          <label htmlFor="password" className="block text-sm font-bold text-gray-700">
             Password
           </label>
           <input
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => dispatch(setUserPassword(e.target.value))}
             id="password"
             type="password"
             placeholder="Enter your password"
@@ -116,8 +113,7 @@ export default function RegisterForm() {
         <div>
           <button
             className="w-full px-4 py-3 text-sm font-bold text-white bg-cyan-400 rounded-md hover:bg-cyan-600 focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
+            type="submit">
             Register
           </button>
           <div className="flex justify-end mt-4">
@@ -129,11 +125,7 @@ export default function RegisterForm() {
           </div>
         </div>
         {/* TODO: Update error to redux state equivalent */}
-        {error && (
-          <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
-            {error}
-          </div>
-        )}
+        {error && <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">{error}</div>}
       </form>
     </>
   );
