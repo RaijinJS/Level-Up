@@ -21,7 +21,7 @@
     "rules": {
       "react/react-in-jsx-scope": "off",
       "react/no-children-prop": "off",
-    //   "@typescript-eslint/no-unused-vars": "off",
-      " react/prop-types": "off"
+      "@typescript-eslint/no-unused-vars": "off",
+      "react/prop-types": "off"
     }
 }
