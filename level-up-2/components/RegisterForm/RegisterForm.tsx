@@ -9,10 +9,6 @@ import { setError, setUserEmail, setUserName, setUserPassword } from "../../redu
 
 export default function RegisterForm() {
   // TODO: Replace with redux
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
 
   const newUser = useAppSelector((state) => state.auth.user);
   const error = useAppSelector((state) => state.auth.error);
