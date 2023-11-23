@@ -5,8 +5,7 @@ import { NextResponse } from "next/dist/server/web/spec-extension/response";
 export async function POST(request: Request) {
   try {
     await connectMongoDB();
-    const { newUser } = await request.json();
-    const email = newUser.email;
+    const { email } = await request.json();
     const user = await User.findOne({ email }).select("_id");
     return NextResponse.json({ user });
   } catch (error) {

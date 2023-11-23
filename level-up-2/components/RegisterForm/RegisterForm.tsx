@@ -1,16 +1,14 @@
 "use client";
 
 import Link from "next/link";
-// TODO: Delete useState import after replace with redux
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setError, setUserEmail, setUserName, setUserPassword } from "../../redux/features/auth-slice";
 
 export default function RegisterForm() {
-  // TODO: Replace with redux
+  // TODO: DONE Replace with redux
 
-  const newUser = useAppSelector((state) => state.auth.user);
+  const { name, email, password } = useAppSelector((state) => state.auth.user);
   const error = useAppSelector((state) => state.auth.error);
   const dispatch = useAppDispatch();
 
@@ -19,7 +17,7 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!newUser.name || !newUser.email || !newUser.password) {
+    if (!name || !email || !password) {
       dispatch(setError("All fields required."));
       return;
     }
@@ -31,8 +29,7 @@ export default function RegisterForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          // Used to be just the email, not sure if this connects well to the API
-          newUser,
+          email,
         }),
       });
 
@@ -48,8 +45,9 @@ export default function RegisterForm() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            // Used to be each property individually, not sure if it works like this
-            newUser,
+            name,
+            email,
+            password,
           }),
         });
 
