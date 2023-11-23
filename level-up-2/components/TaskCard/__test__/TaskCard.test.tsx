@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import TaskCard from "../TaskCard";
 import { tasks } from "../../../utils/tests/tasks.mocks";
 import { setupStore } from "../../../redux/store";

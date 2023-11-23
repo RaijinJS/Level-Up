@@ -1,9 +1,6 @@
 "use client"
 
 import React from "react";
-import home from "../../public/home.svg";
-import Image from "next/image";
-import { signOut } from "next-auth/react";
 import Nav from "../../components/Nav/Nav";
 
 

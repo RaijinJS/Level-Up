@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function PUT(request: Request) {
+export async function PUT() {
   try {
     await connectMongoDB();
     const randomTask = await Task.aggregate([

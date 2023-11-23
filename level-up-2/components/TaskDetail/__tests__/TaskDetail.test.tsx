@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import TaskDetail from "../TaskDetail";
 import { tasks } from "../../../utils/tests/tasks.mocks";
 import { renderWithProviders } from "../../../utils/tests/test.utils";

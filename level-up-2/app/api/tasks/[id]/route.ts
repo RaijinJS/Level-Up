@@ -30,7 +30,7 @@ export async function PUT(
 
 // TODO: DONE - Delete delete function that was never used
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     await connectMongoDB();
     const completedTasks = await Task.find({ completed: true });
