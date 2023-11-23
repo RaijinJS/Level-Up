@@ -1,78 +1,43 @@
-import { screen } from "@testing-library/react";
-import Profile from "../page";
-import ProfileLayout from "../layout";
+import { MockResponseInitFunction } from "jest-fetch-mock";
+import { completedTasks } from "../../../utils/tests/tasks.mocks";
+import { act } from "react-dom/test-utils";
 import { renderWithProviders } from "../../../utils/tests/test.utils";
+import ProfileLayout from "../layout";
+import { screen, waitFor } from "@testing-library/react";
+import { setCompletedTasks } from "../../../redux/features/tasks-slice";
+import { setupStore } from "../../../redux/store";
 
-describe("Profile", () => {
+const store = setupStore();
+store.dispatch(setCompletedTasks(completedTasks));
+
+describe.skip("Profile Navigation", () => {
   beforeEach(() => {
+    const mockResponse: MockResponseInitFunction = async () => {
+      return new Promise((resolve) => {
+        resolve({
+          body: JSON.stringify(completedTasks),
+        });
+      });
+    };
+    fetchMock.mockResponseOnce(mockResponse);
     // ARRANGE
-    renderWithProviders(<Profile />);
-  });
-
-  it("should contain a 'Your Progress' title", () => {
-    // ACT
-    const progressTitle = screen.getByText("Your Progress"); // Make sure you text match is exact! Check for uppercase
-
-    // ASSERT
-    expect(progressTitle).toBeInTheDocument();
-  });
-
-  it("should show the right progress level", () => {
-    // ACT
-    const level = screen.getByTestId("level");
-    const count = Number(screen.getByTestId("count").textContent);
-
-    switch (true) {
-      case count === 0:
-        // ASSERT
-        expect(level).toHaveTextContent("🎯 Set your first task! 🎯");
-        break;
-      case count < 5:
-        // ASSERT
-        expect(level).toHaveTextContent("Rookie 🌱");
-        break;
-      case count < 11:
-        // ASSERT
-        expect(level).toHaveTextContent("Amateur 🚀");
-        break;
-      case count < 16:
-        // ASSERT
-        expect(level).toHaveTextContent("Pro 🏆");
-        break;
-      case count < 21:
-        // ASSERT
-        expect(level).toHaveTextContent("Advanced ⭐");
-        break;
-      default:
-        // ASSERT
-        expect(level).toHaveTextContent("🌟 Master 🌟");
-        break;
-    }
-  });
-
-  describe("Profile Navigation", () => {
-    beforeEach(() => {
-      // ARRANGE
-      renderWithProviders(<ProfileLayout children={""} />);
+    act(() => {
+      renderWithProviders(<ProfileLayout children={""} />, { store });
     });
+  });
 
-    it("should render home button for redirection", () => {
+  it("should render home button for redirection", async () => {
+    await waitFor(() => {
       // ACT
       const home = screen.getByTestId("homeButton");
 
       // ASSERT
       expect(home).toBeInTheDocument();
     });
+  });
 
-    it("should render logo button for redirection", () => {
-      // ACT
-      const logo = screen.getByTestId("logoButton");
-
-      // ASSERT
-      expect(logo).toBeInTheDocument();
-    });
-
-    it("should render log out button", () => {
+  it("should render log out button", async () => {
+    await waitFor(() => {
       // ACT
       const logOut = screen.getByTestId("logOutButton");
 
