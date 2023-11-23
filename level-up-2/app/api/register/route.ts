@@ -3,9 +3,15 @@ import connectMongoDB from "../../../lib/mongodb";
 import User from "../../model/User";
 import bcrypt from "bcryptjs";
 
+interface IUser {
+  name: string;
+  email: string;
+  password: string;
+}
+
 export async function POST(request: Request) {
   try {
-    const { name, email, password } = await request.json();
+    const { name, email, password }: IUser = await request.json();
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await connectMongoDB();

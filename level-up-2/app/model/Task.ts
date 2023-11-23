@@ -10,7 +10,8 @@ const taskSchema = new Schema<TaskType>({
   added: { type: Boolean, default: false },
 });
 
-const Task = mongoose.models.Task || mongoose.model<TaskType>("Task", taskSchema);
+const Task =
+  mongoose.models.Task || mongoose.model<TaskType>("Task", taskSchema);
 export default Task;
 
 // TODO: DONE - Move to new model folder

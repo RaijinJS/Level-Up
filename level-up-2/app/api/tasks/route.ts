@@ -10,12 +10,12 @@ export async function POST(request: Request) {
     if (res.ok) {
       return NextResponse.json(
         { message: "Task generated successfully" },
-        { status: 201 }
+        { status: 201 },
       );
     } else {
       return NextResponse.json(
         { message: "Task could not be created" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   } catch (error) {
@@ -35,13 +35,13 @@ export async function PUT(request: Request) {
       console.log("none left");
       return NextResponse.json(
         { message: "No unadded tasks remaining" },
-        { status: 404 }
+        { status: 404 },
       );
     }
     const updatedTask = await Task.findOneAndUpdate(
       { _id: randomTask[0]._id },
       { $set: { added: true } },
-      { new: true }
+      { new: true },
     );
     return NextResponse.json(updatedTask);
   } catch (error) {

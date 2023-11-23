@@ -14,7 +14,7 @@ export default function RegisterForm() {
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!name || !email || !password) {
@@ -52,7 +52,7 @@ export default function RegisterForm() {
         });
 
         if (res.ok) {
-          const form = e.target;
+          const form = e.target as HTMLFormElement;
           form.reset();
           router.push("/signinPage");
         } else {

@@ -14,7 +14,7 @@ export default function SignInForm() {
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const res = await signIn("credentials", {
