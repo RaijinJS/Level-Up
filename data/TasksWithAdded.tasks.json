@@ -1,0 +1,233 @@
+[{
+  "_id": {
+    "$oid": "654f9739ac3df9f0b03ba5c4"
+  },
+  "title": "Egg Transport",
+  "description": "Create a device that can transport an egg the furthest distance without breaking it.",
+  "image": "/egg-transport.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Use lightweight materials like straws or balloons to cushion the egg. Test different designs for stability and shock absorption. Be creative in using recyclable materials.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "654f97c7ac3df9f0b03ba5ca"
+  },
+  "title": "Poetry in Motion",
+  "description": "Compose a poem about a random object in the room and perform it in the most dramatic way possible.",
+  "image": "/poetry-in-motion.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Focus on sensory details to bring your object to life. Experiment with different poetic forms. Rehearse your performance to emphasize rhythm and emotion.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "654f97f4ac3df9f0b03ba5cd"
+  },
+  "title": "Disguise Parade",
+  "description": "Create the most convincing disguise using only items found in your kitchen.",
+  "image": "/disguise-parade.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Think outside the box - use foil for metallic effects or vegetables for unique textures. Pay attention to how different materials can represent different facial features.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "654f9802ac3df9f0b03ba5cf"
+  },
+  "title": "The Longest Domino Line",
+  "description": "Set up a domino line using unconventional items that goes for as long as possible without breaking the chain.",
+  "image": "/dominos.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Explore your home for small, flat objects that can stand on edge. Arrange them in a creative pattern for visual effect. Test different spacing to ensure a consistent fall.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "654f980fac3df9f0b03ba5d1"
+  },
+  "title": "Portrait Perfection",
+  "description": "Draw a portrait of a celebrity using only condiments as your paint.",
+  "image": "/portrait-perfection.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Select a range of condiments for different colors and textures. Sketch your design lightly first. Use a fine tool for details and a wider one for filling larger areas.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "6550e40cfe0b84aa9a9435d2"
+  },
+  "title": "Whispering Gallery",
+  "description": "Record a video where your whisper can be clearly heard 15 feet away.",
+  "image": "/whispering-gallery.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Find a quiet room and set up a camera 15 feet away. Whisper various phrases and see if the camera's microphone can pick up your words. Experiment with different volumes and tones to find the most effective whisper.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "6550e44ffe0b84aa9a9435e3"
+  },
+  "title": "The Great Escape",
+  "description": "Tape yourself escaping from a room using only a spoon.",
+  "image": "/the-great-escape.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Using a spoon, demonstrate creative and humorous ways to 'escape' from a room. The spoon can be used as a tool or a pretend gadget to add fun elements to your escape plan.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "6550e468fe0b84aa9a9435e5"
+  },
+  "title": "Backward Dialogue",
+  "description": "Film a conversation that makes sense when played in reverse.",
+  "image": "/backward-dialogue.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Write a short script that would make logical sense when the filmed conversation is played backward. Practice speaking the lines backward, and then record the conversation to be reversed in editing."
+},
+{
+  "_id": {
+    "$oid": "6550e484fe0b84aa9a9435e7"
+  },
+  "title": "Synchronized Swimmers",
+  "description": "Choreograph a one-minute synchronized swimming routine on land.",
+  "image": "/syncro-swimmers.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Create a humorous and exaggerated routine mimicking synchronized swimming, but performed on land. Coordinate movements with a partner or as a solo act to music for added effect.",
+  "added": false
+},
+{
+  "_id": {
+    "$oid": "6550e494fe0b84aa9a9435e9"
+  },
+  "title": "The Ultimate Sandwich",
+  "description": "Create the tallest sandwich possible that can stand on its own for 30 seconds.",
+  "image": "/ultimate-sandwich.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Stack various ingredients strategically to build a tall sandwich. Balance is key, so consider the weight and texture of each ingredient. The goal is to have the sandwich stand independently for at least 30 seconds.",
+  "added": false
+},
+{
+  "_id": {
+    "$oid": "6550e4a1fe0b84aa9a9435eb"
+  },
+  "title": "Balancing Act",
+  "description": "Balance as many books on your head as you can while walking across a room.",
+  "image": "/balancing-act.png",
+  "completed": false,
+  "__v": 0,
+  "more": "Start with a single book and gradually add more while maintaining balance. Walk slowly across a room, focusing on keeping your head steady and your movements smooth to prevent the books from falling.",
+  "added": false
+},
+{
+  "_id": {
+    "$oid": "6550e4c2fe0b84aa9a9435ed"
+  },
+  "title": "Time Capsule",
+  "description": "Create a time capsule with items that best represent the current year.",
+  "image": "/time-capsule.png",
+  "completed": true,
+  "__v": 0,
+  "more": "Gather items or memorabilia that capture the essence of the current year, considering trends, significant events, or personal milestones. Securely store these items in a container to be opened in the future.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "6550e4dafe0b84aa9a9435ef"
+  },
+  "title": "Upside-Down Artist",
+  "description": "Draw a recognizable landmark while holding the pen with your mouth.",
+  "image": "/upside-down-artist.png",
+  "completed": true,
+  "__v": 0,
+  "more": "Select a landmark and practice sketching it upside down using only your mouth to hold the pen. This challenge requires patience and a steady head movement to control the pen.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "6550e4eefe0b84aa9a9435f1"
+  },
+  "title": "Mystery Box",
+  "description": "Convince a friend to trade something valuable for a mystery box.",
+  "image": "/mistery-box.png",
+  "completed": true,
+  "__v": 0,
+  "more": "Prepare a mystery box with unknown contents. Use persuasive skills to convince a friend to trade an item of value for the box without revealing what's inside. The fun is in the suspense and negotiation.",
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "65535f676b4dfef5da0a63e5"
+  },
+  "title": "Cup Tower Challenge",
+  "description": "Build the tallest tower using only plastic cups within a time limit.",
+  "more": "Test different construction methods for stability. Work on a level surface. Focus on a balance between height and sturdiness to prevent collapse.",
+  "image": "/cup-tower-challenge.png",
+  "completed": true,
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "65535f876b4dfef5da0a63e7"
+  },
+  "title": "Balloon Bounce Challenge",
+  "description": "Keep a balloon in the air for as long as possible using unconventional body parts.",
+  "more": "Avoid using your hands or feet. Experiment with your elbows, knees, or head. Keep moving to maintain the balloon's momentum.",
+  "image": "/balloon-bounce.png",
+  "completed": true,
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "65535f9a6b4dfef5da0a63e9"
+  },
+  "title": "Kitchen Symphony",
+  "description": "Create a piece of music using only kitchen utensils as instruments.",
+  "more": "Experiment with different utensils for a range of sounds. Establish a rhythm and layer different sounds. Record and mix the sounds for better audio quality.",
+  "image": "/kitchen-symphony.png",
+  "completed": false,
+  "added": false
+},
+{
+  "_id": {
+    "$oid": "65535fb16b4dfef5da0a63eb"
+  },
+  "title": "Invisible Obstacle Course",
+  "description": "Navigate through an obstacle course in your home blindfolded.",
+  "more": "Memorize the layout of your space before starting. Use other senses like touch and hearing to guide you. Keep safety in mind and remove dangerous objects.",
+  "image": "/invisible-obstacle-course.png",
+  "completed": true,
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "65535ffc6b4dfef5da0a63ed"
+  },
+  "title": "Impromptu Invention",
+  "description": "Create a new, useful household tool from random items you have at home.",
+  "more": "Look for items that can be combined in innovative ways. Think about what small inconvenience you can address with your creation. Keep functionality in mind.",
+  "image": "/impromptu-invention.png",
+  "completed": true,
+  "added": true
+},
+{
+  "_id": {
+    "$oid": "655360a76b4dfef5da0a63ef"
+  },
+  "title": "Origami Odyssey",
+  "description": "Create an intricate origami figure following an online tutorial.",
+  "more": "Choose a tutorial suited to your skill level. Be patient and precise with each fold. Practice repeatedly to perfect your technique.",
+  "image": "/origami-odyssey.png",
+  "completed": true,
+  "added": true
+}]
