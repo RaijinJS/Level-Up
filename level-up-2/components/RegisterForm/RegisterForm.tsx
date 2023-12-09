@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setError, setUserEmail, setUserName, setUserPassword } from "../../redux/features/auth-slice";
 
 export default function RegisterForm() {
-  // TODO: DONE Replace with redux
 
   const { name, email, password } = useAppSelector((state) => state.auth.user);
   const error = useAppSelector((state) => state.auth.error);

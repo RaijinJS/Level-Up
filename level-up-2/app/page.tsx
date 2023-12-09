@@ -1,7 +1,6 @@
 import React from "react";
 import { NavigateToHomeButton } from "../components/Buttons";
 
-// TODO: DONE - Make this server side rendering and make the button a separate client side rendered component
 const Page = () => {
   return (
     <div className="flex flex-col min-h-screen grow items-center justify-center">

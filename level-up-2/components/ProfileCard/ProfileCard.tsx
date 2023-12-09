@@ -4,12 +4,9 @@ import React from "react";
 import TaskListProfile from "../TaskList/TaskListProfile";
 import { useAppSelector } from "../../redux/hooks";
 
-// TODO: DONE Create a taskList component for the profile page
-
 export default function ProfileCard() {
   const completedTasks = useAppSelector((state) => state.tasks.completedTasks);
 
-  // TODO: DONE - make below a switch statement
   const achievementMessage = () => {
     const count = completedTasks.length;
     switch (true) {

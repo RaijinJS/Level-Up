@@ -48,7 +48,6 @@ export const FetchTaskButton = () => {
     <button
       onClick={fetchTask}
       className="bg-red-300 text-white p-4 rounded-full shadow-lg animate-pulse transition-all duration-200 ease-in-out transform hover:scale-110 cursor-pointer">
-      {/* TODO: DONE - Make svg below a component */}
       <Image src={addButton} alt="Add Button" className="h-6 w-6" />
     </button>
   );

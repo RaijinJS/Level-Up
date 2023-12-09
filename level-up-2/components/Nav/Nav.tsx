@@ -10,15 +10,12 @@ export default function Nav() {
   const pathname = usePathname();
   return (
     <nav className="w-full flex items-center justify-between p-2 bg-white shadow-md">
-      {/* TODO: DONE - Delete unused css rules */}
       {pathname === "/HomePage" ? (
         <a href="/Profile" className="pl-4">
-          {/* TODO: DONE - Make svg a component */}
           <Image src={profilePic} alt="Profile Button" className="h-10 w-10" />
         </a>
       ) : (
         <a href="/HomePage" className="pl-4 pr-2 md:pr-0" data-testid="homeButton">
-          {/* TODO: DONE - turn home icon svg below into component */}
           <Image src={home} alt="Home Button" className="h-8 w-8" />
         </a>
       )}

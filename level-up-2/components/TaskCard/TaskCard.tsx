@@ -1,10 +1,9 @@
 "use client";
-// TODO: DONE - Split logic between TaskList and TaskCard
+
 import TaskDetail from "../TaskDetail/TaskDetail";
 import { TaskType } from "../../app/types/Task";
 import { DeleteButton, TaskDetailsButton, ToggleCompleteButton } from "../Buttons";
 
-// TODO: DONE - redux states
 
 interface TaskCardProps {
   task: TaskType;

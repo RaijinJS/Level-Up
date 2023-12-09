@@ -12,7 +12,6 @@ export default function Home() {
           <ProgressionBar />
         </a>
       </div>
-      {/* TODO: DONE - Make a TaskList component and move task logic into it. */}
       <div className="container mx-auto px-4 pt-2">
         <TaskListHome />
       </div>

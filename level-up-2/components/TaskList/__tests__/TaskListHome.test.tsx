@@ -26,13 +26,5 @@ describe("TaskList", () => {
     });
 
     await waitFor(() => expect(screen.getAllByTestId("task-card")).toHaveLength(3)); // ACT & ASSERT
-
-    // TODO: find out how to rerender components with only 2 tasks
-
-    // Test only with the first 2 tasks
-    // rerender(<TaskListHome />, { store }); // ARRANGE
-    // expect(screen.getAllByTestId("task-card")).toHaveLength(2); // ACT & ASSERT
-
-    // We check twice to see if the .map function is working as we expect it to
   });
 });

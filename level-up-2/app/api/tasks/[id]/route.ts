@@ -28,7 +28,6 @@ export async function PUT(
   }
 }
 
-// TODO: DONE - Delete delete function that was never used
 
 export async function GET() {
   try {

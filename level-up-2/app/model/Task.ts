@@ -13,5 +13,3 @@ const taskSchema = new Schema<TaskType>({
 const Task =
   mongoose.models.Task || mongoose.model<TaskType>("Task", taskSchema);
 export default Task;
-
-// TODO: DONE - Move to new model folder

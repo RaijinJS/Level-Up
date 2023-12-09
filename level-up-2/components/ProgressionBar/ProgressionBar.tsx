@@ -4,7 +4,6 @@ import { useAppSelector } from "../../redux/hooks";
 import { startCelebration } from "../celebration";
 import { useEffect } from "react";
 
-// TODO: DONE - Redux edit props
 export default function ProgressionBar() {
   const tasks = useAppSelector((state) => state.tasks.tasks);
 
