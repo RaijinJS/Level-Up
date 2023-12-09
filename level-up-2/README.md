@@ -2,7 +2,7 @@
 # Level Up - The App to Develop Useless Skills (PRE-REFACTOR README)
 
 ## Introduction
-Welcome to "The App to Develop Useless Skills" - a unique and playful web application built with Next.js, MongoDB, Mongoose, Tailwind CSS.
+Welcome to "The App to Develop Useless Skills" - a unique and playful web application written built with Next.js, MongoDB, Mongoose, Tailwind CSS.
 This app is designed to offer users a fun way to discover and engage in various whimsical and unavailing skills.
 Perfect for those moments when you want to distract yourself and learn something new yet delightfully useless.
 
