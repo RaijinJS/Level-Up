@@ -8,7 +8,7 @@
   "completed": false,
   "__v": 0,
   "more": "Use lightweight materials like straws or balloons to cushion the egg. Test different designs for stability and shock absorption. Be creative in using recyclable materials.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -32,7 +32,7 @@
   "completed": false,
   "__v": 0,
   "more": "Think outside the box - use foil for metallic effects or vegetables for unique textures. Pay attention to how different materials can represent different facial features.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -44,7 +44,7 @@
   "completed": false,
   "__v": 0,
   "more": "Explore your home for small, flat objects that can stand on edge. Arrange them in a creative pattern for visual effect. Test different spacing to ensure a consistent fall.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -56,7 +56,7 @@
   "completed": false,
   "__v": 0,
   "more": "Select a range of condiments for different colors and textures. Sketch your design lightly first. Use a fine tool for details and a wider one for filling larger areas.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -68,7 +68,7 @@
   "completed": false,
   "__v": 0,
   "more": "Find a quiet room and set up a camera 15 feet away. Whisper various phrases and see if the camera's microphone can pick up your words. Experiment with different volumes and tones to find the most effective whisper.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -80,7 +80,7 @@
   "completed": false,
   "__v": 0,
   "more": "Using a spoon, demonstrate creative and humorous ways to 'escape' from a room. The spoon can be used as a tool or a pretend gadget to add fun elements to your escape plan.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -136,10 +136,10 @@
   "title": "Time Capsule",
   "description": "Create a time capsule with items that best represent the current year.",
   "image": "/time-capsule.png",
-  "completed": true,
+  "completed": false,
   "__v": 0,
   "more": "Gather items or memorabilia that capture the essence of the current year, considering trends, significant events, or personal milestones. Securely store these items in a container to be opened in the future.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -148,10 +148,10 @@
   "title": "Upside-Down Artist",
   "description": "Draw a recognizable landmark while holding the pen with your mouth.",
   "image": "/upside-down-artist.png",
-  "completed": true,
+  "completed": false,
   "__v": 0,
   "more": "Select a landmark and practice sketching it upside down using only your mouth to hold the pen. This challenge requires patience and a steady head movement to control the pen.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -160,10 +160,10 @@
   "title": "Mystery Box",
   "description": "Convince a friend to trade something valuable for a mystery box.",
   "image": "/mistery-box.png",
-  "completed": true,
+  "completed": false,
   "__v": 0,
   "more": "Prepare a mystery box with unknown contents. Use persuasive skills to convince a friend to trade an item of value for the box without revealing what's inside. The fun is in the suspense and negotiation.",
-  "added": true
+  "added": false
 },
 {
   "_id": {
@@ -173,8 +173,8 @@
   "description": "Build the tallest tower using only plastic cups within a time limit.",
   "more": "Test different construction methods for stability. Work on a level surface. Focus on a balance between height and sturdiness to prevent collapse.",
   "image": "/cup-tower-challenge.png",
-  "completed": true,
-  "added": true
+  "completed": false,
+  "added": false
 },
 {
   "_id": {
@@ -184,8 +184,8 @@
   "description": "Keep a balloon in the air for as long as possible using unconventional body parts.",
   "more": "Avoid using your hands or feet. Experiment with your elbows, knees, or head. Keep moving to maintain the balloon's momentum.",
   "image": "/balloon-bounce.png",
-  "completed": true,
-  "added": true
+  "completed": false,
+  "added": false
 },
 {
   "_id": {
@@ -217,7 +217,7 @@
   "description": "Create a new, useful household tool from random items you have at home.",
   "more": "Look for items that can be combined in innovative ways. Think about what small inconvenience you can address with your creation. Keep functionality in mind.",
   "image": "/impromptu-invention.png",
-  "completed": true,
+  "completed": false,
   "added": true
 },
 {
@@ -228,6 +228,6 @@
   "description": "Create an intricate origami figure following an online tutorial.",
   "more": "Choose a tutorial suited to your skill level. Be patient and precise with each fold. Practice repeatedly to perfect your technique.",
   "image": "/origami-odyssey.png",
-  "completed": true,
-  "added": true
+  "completed": false,
+  "added": false
 }]

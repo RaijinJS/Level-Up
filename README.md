@@ -1,5 +1,5 @@
 ![logo1](./public/logo1.png)
-# Level Up - The App to Develop Useless Skills (PRE-REFACTOR README)
+# Level Up - The App to Develop Useless Skills
 
 ## Introduction
 Welcome to "The App to Develop Useless Skills" - a unique and playful web application built with Next.js, MongoDB, Mongoose, Tailwind CSS (then converted to TypeScript and updated with NextAuth, Redux, and Jest).
@@ -27,20 +27,31 @@ Ensure you have Node.js and MongoDB installed on your system. You can download t
 - [MongoDB](https://www.mongodb.com/try/download/community)
 
 ### Installation
+
  **Clone the repository**
    ```bash
 
-   git clone https: git@github.com:RaijinJS/Level-Up.git
+   git clone git@github.com:RaijinJS/Level-Up.git
    cd Level-Up
 
 ### Install dependencies
    npm install
 
-### Start the development server
-   npm run dev
    ```
+
+- Import the TasksWithAdded.tasks.json into your MongoDB. For example, in MongoDB Compass:
+   1. Connect and click the + next to the Databases list to add a new Database
+   2. Name the Database Tasks and the colleciton tasks, then click the Create Database button
+   3. In the new database, click ADD DATA and select Import JSON or CSV file
+   4. Navigate to the TasksWithAdded.tasks.json and select it. You'll find it at data\TasksWithAdded.tasks.json
+   5. Import, and done!
+
+### Start the development server
+Run `npm run dev`
+
 Visit http://localhost:3000 in your browser to view the app.
 
+Sign up with any character combination to get into the app, just make sure it matches upon sign in!
 
 ## Demo Screenshots
 
